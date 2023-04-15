@@ -1,38 +1,13 @@
 extends KinematicBody2D
 
-
 onready var right_checker = $right_checker
 onready var left_checker = $left_checker
 onready var down_checker = $down_checker
 onready var up_checker = $up_checker
 
-export var speed = 90
-
 var cell_size = 16
 
-func _ready():
-	pass # Replace with function body.
-
-func _physics_process(delta):
-#	var input_vector := Vector2(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
-#	var move_direction := input_vector.normalized()
-#	move_and_slide(speed * move_direction)
-
-
-	pass
-	
-func _input(event):
-	var target_position = global_position
-	if event.is_action_pressed("move_right"):
-		move_to(Vector2.RIGHT)
-	if event.is_action_pressed("move_left"):
-		move_to(Vector2.LEFT)
-	if event.is_action_pressed("move_down"):
-		move_to(Vector2.DOWN)
-	if event.is_action_pressed("move_up"):
-		move_to(Vector2.UP)
-
-func move_to(direction):
+func move_to(direction,tween):
 	var target_position = global_position + (direction * cell_size)
 	var can_move = false
 	if (direction == Vector2.RIGHT and len(right_checker.get_overlapping_bodies()) == 0):
@@ -44,14 +19,40 @@ func move_to(direction):
 	if (direction == Vector2.UP and len(up_checker.get_overlapping_bodies()) == 0):
 		can_move = true
 	if can_move:
-		self.position = target_position
+		tween.tween_property(self,"global_position",target_position,0.5)
+		return true
 	else:
-		return
-
-	
-	
-	
-	
+		return false
 
 
-	
+func iterate_commands(commands):
+	for direction in commands:
+		var tween = create_tween()
+		if move_to(direction,tween):
+			yield(tween, "finished")
+			print('commanded')
+		else:
+			print('action cannot do')
+
+func run_code(code):
+	evaluate_code(code)
+#	var commands = []
+#	commands.append(Vector2.LEFT)
+#	commands.append(Vector2.RIGHT)
+#	commands.append(Vector2.RIGHT)
+#	commands.append(Vector2.RIGHT)
+#	commands.append(Vector2.DOWN)
+#	iterate_commands(commands)
+
+func evaluate_code(input):
+	var transformedInput  = input.replace('\n','\n\t')
+#	transformedInput = transformedInput.replace('print','print_output')
+	var script = GDScript.new()
+	script.set_source_code("func eval():\n\t" + transformedInput)
+	script.reload()
+
+	var obj = Reference.new()
+	obj.set_script(script)
+
+#	return obj.eval() 
+	obj.eval() 
