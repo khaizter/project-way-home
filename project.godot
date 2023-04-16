@@ -14,6 +14,10 @@ config/name="project-way-home"
 run/main_scene="res://levels/level_0.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+player="*res://singleton/Player.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

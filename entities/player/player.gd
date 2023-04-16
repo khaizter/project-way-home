@@ -5,7 +5,15 @@ onready var left_checker = $left_checker
 onready var down_checker = $down_checker
 onready var up_checker = $up_checker
 
+onready var initial_position = global_position
 var cell_size = 16
+var commands = []
+
+func _ready():
+	player.connect("player_move",self, "_on_player_move")
+
+func reset_position():
+	global_position = initial_position
 
 func move_to(direction,tween):
 	var target_position = global_position + (direction * cell_size)
@@ -24,29 +32,27 @@ func move_to(direction,tween):
 	else:
 		return false
 
-
 func iterate_commands(commands):
-	for direction in commands:
+	for index in range(len(commands)):
+		var direction = commands[index]
 		var tween = create_tween()
 		if move_to(direction,tween):
 			yield(tween, "finished")
-			print('commanded')
 		else:
-			print('action cannot do')
+#			illegal action
+			pass
+#		last command ended
+		if index == len(commands) - 1:
+			reset_position()
 
 func run_code(code):
 	evaluate_code(code)
-#	var commands = []
-#	commands.append(Vector2.LEFT)
-#	commands.append(Vector2.RIGHT)
-#	commands.append(Vector2.RIGHT)
-#	commands.append(Vector2.RIGHT)
-#	commands.append(Vector2.DOWN)
-#	iterate_commands(commands)
+#
+	iterate_commands(commands)
+	commands = []
 
 func evaluate_code(input):
-	var transformedInput  = input.replace('\n','\n\t')
-#	transformedInput = transformedInput.replace('print','print_output')
+	var transformedInput  = input.replace('\n','\n\t') + '\n\tpass'
 	var script = GDScript.new()
 	script.set_source_code("func eval():\n\t" + transformedInput)
 	script.reload()
@@ -54,5 +60,9 @@ func evaluate_code(input):
 	var obj = Reference.new()
 	obj.set_script(script)
 
-#	return obj.eval() 
+	print('code run')
 	obj.eval() 
+
+func _on_player_move(direction, times):
+	for i in range(times):
+		commands.append(direction)

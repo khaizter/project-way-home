@@ -20,5 +20,16 @@ margin_top = 8.0
 margin_right = 452.0
 margin_bottom = 358.0
 rect_scale = Vector2( 0.4, 0.4 )
+highlight_current_line = true
+show_line_numbers = true
+
+[node name="error_feedback" type="TextEdit" parent="."]
+margin_left = 192.0
+margin_top = 152.0
+margin_right = 367.0
+margin_bottom = 202.0
+rect_scale = Vector2( 0.4, 0.4 )
+text = "Error Feedback"
+readonly = true
 
 [connection signal="pressed" from="run_button" to="." method="_on_run_button_pressed"]
