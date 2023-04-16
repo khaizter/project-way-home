@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="level_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="level_1_button" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="level_2_button" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="level_3_button" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
