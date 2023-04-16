@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://menu/main_menu/main_menu.gd" type="Script" id=1]
-[ext_resource path="res://levels/level_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menu/level_menu/level_menu.tscn" type="PackedScene" id=2]
 
 [node name="main_menu" type="Control"]
 anchor_right = 1.0

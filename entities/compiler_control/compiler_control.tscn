@@ -20,6 +20,10 @@ margin_top = 8.0
 margin_right = 452.0
 margin_bottom = 358.0
 rect_scale = Vector2( 0.4, 0.4 )
+text = "# player.moveRight() - to move right
+# player.moveLeft() - to move left
+# player.moveUp() - to move up
+# player.moveDown() - to move down"
 highlight_current_line = true
 show_line_numbers = true
 
@@ -32,4 +36,26 @@ rect_scale = Vector2( 0.4, 0.4 )
 text = "Error Feedback"
 readonly = true
 
+[node name="lecture_container" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="lecture" type="TextEdit" parent="lecture_container"]
+margin_left = 184.0
+margin_right = 484.0
+margin_bottom = 440.0
+rect_scale = Vector2( 0.4, 0.4 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nulla dui, sollicitudin nec libero in, volutpat aliquam lorem. Quisque mauris ligula, placerat varius mauris in, semper rutrum leo. Sed laoreet nulla eu tristique luctus. Fusce rhoncus felis est, id pretium sem bibendum nec. Vestibulum ullamcorper venenatis nisi laoreet imperdiet. Etiam dapibus lorem non massa fringilla, ac fringilla diam scelerisque. Praesent ut aliquam nunc. Quisque egestas congue augue id mattis. Nam vitae neque sit amet neque scelerisque volutpat nec ac risus. Duis at sodales sapien. Mauris eu sollicitudin lacus. Vivamus sed hendrerit lorem. Integer ultrices eros nec turpis condimentum fringilla nec ut tortor. Aenean a pharetra nunc, ut viverra magna. Fusce pellentesque congue urna, nec lacinia massa consequat eu."
+readonly = true
+wrap_enabled = true
+
+[node name="lecture_button" type="Button" parent="lecture_container"]
+margin_left = 256.0
+margin_top = 152.0
+margin_right = 301.0
+margin_bottom = 172.0
+text = "got it"
+
 [connection signal="pressed" from="run_button" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="lecture_container/lecture_button" to="." method="_on_lecture_button_pressed"]
