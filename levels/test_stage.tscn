@@ -19,3 +19,6 @@ move_speed = 75
 
 [node name="npc" parent="." instance=ExtResource( 4 )]
 position = Vector2( 136, 40 )
+
+[node name="npc2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 40, 136 )

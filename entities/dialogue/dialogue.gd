@@ -11,6 +11,7 @@ var current_dialogue_index = 0
 var total_dialogue_index = 0
 
 func _ready():
+	visible = false
 	dialogues = load_dialogue(dialogue_file)
 	
 	if (!dialogues or len(dialogues) == 0):

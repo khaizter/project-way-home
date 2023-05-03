@@ -19,6 +19,7 @@ func _ready():
 
 func _input(event):
 	if (event.is_action_pressed("interact")):
+	
 		interact()
 		pass
 
@@ -94,3 +95,4 @@ func evaluate_code(input):
 func _on_player_move(direction, times):
 	for i in range(times):
 		commands.append(direction)
+
