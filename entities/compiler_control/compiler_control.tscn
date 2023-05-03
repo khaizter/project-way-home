@@ -37,7 +37,6 @@ text = "Error Feedback"
 readonly = true
 
 [node name="lecture_container" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
