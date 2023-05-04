@@ -1,5 +1,8 @@
 extends Area2D
 
+export(Array,String,FILE, "*.json") var dialogue_files
+export(String) var npc_name
+
 onready var dialogue = $dialogue
 onready var interact_button = $control/interact_button
 
@@ -9,6 +12,7 @@ var player_in_range = false
 
 func _ready():
 	interact_button.visible = false
+	dialogue.initialize_dialogues(dialogue_files)
 
 func _process(delta):
 	interact_button.visible = player_in_range
@@ -18,7 +22,7 @@ func interaction():
 		interacting = true
 		print('npc begin interact')
 		player.set_physics_process(false)
-		dialogue.open_dialogue()
+		dialogue.start(1,{"name":"Khaizter"})
 
 func _on_npc_body_entered(body):	
 	if body.is_in_group("player"):
@@ -33,6 +37,7 @@ func _on_npc_body_exited(body):
 		body.disconnect("player_interact",self,"interaction")
 
 
-func _on_dialogue_finish_dialogue():
+func _on_dialogue_finish_dialogue(page):
 	interacting = false
 	player.set_physics_process(true)
+	print(page)
