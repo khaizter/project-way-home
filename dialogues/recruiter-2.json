@@ -1,0 +1,13 @@
+[
+  { "name": "(name)", "text": "I’m (name), Nice to meet you as well." },
+  { "name": "Recruiter", "text": "Hello (name)!" },
+  { "name": "(name)", "text": "Welcome to e-corp." },
+  {
+    "name": "Recruiter",
+    "text": "I would like to give you a tour to our office, but I’m kinda busy right now."
+  },
+  {
+    "name": "Recruiter",
+    "text": "Don’t worry NPC 2 is waiting for you inside."
+  }
+]
