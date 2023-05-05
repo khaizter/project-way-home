@@ -16,11 +16,8 @@ func _ready():
 		self.connect("run_code",player,"run_code")
 		pass
 
-
 func _on_run_button_pressed():
 	emit_signal("run_code",code_editor.text)
 
-
 func _on_lecture_button_pressed():
 	lecture_container.visible = false
-	pass # Replace with function body.

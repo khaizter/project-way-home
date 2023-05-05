@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://entities/problem_solver/problem_solver.gd" type="Script" id=1]
+
+[node name="problem_solver" type="CanvasLayer"]
+script = ExtResource( 1 )
+tutorial_text = "Assign your nickname to 'name' variable
+Ex:
+	name = \"Bob\""
+checker = "if name != '':
+	passed = True"
+
+[node name="control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="code_editor" type="TextEdit" parent="control"]
+margin_left = 232.0
+margin_top = 288.0
+margin_right = 792.0
+margin_bottom = 512.0
+highlight_current_line = true
+show_line_numbers = true
+
+[node name="code_feedback" type="TextEdit" parent="control"]
+margin_left = 232.0
+margin_top = 520.0
+margin_right = 672.0
+margin_bottom = 576.0
+text = "error feedback"
+readonly = true
+
+[node name="run_button" type="Button" parent="control"]
+margin_left = 680.0
+margin_top = 528.0
+margin_right = 792.0
+margin_bottom = 548.0
+text = "RUN"
+
+[node name="reset_button" type="Button" parent="control"]
+margin_left = 680.0
+margin_top = 552.0
+margin_right = 792.0
+margin_bottom = 572.0
+text = "RESET"
+
+[node name="tutorial_background" type="ColorRect" parent="control"]
+margin_left = 232.0
+margin_top = 24.0
+margin_right = 792.0
+margin_bottom = 576.0
+color = Color( 0.956863, 0.819608, 0.584314, 1 )
+
+[node name="tutorial" type="RichTextLabel" parent="control/tutorial_background"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 544.0
+margin_bottom = 512.0
+text = "tutorial"
+
+[node name="gotit_button" type="Button" parent="control/tutorial_background"]
+margin_left = 496.0
+margin_top = 520.0
+margin_right = 544.0
+margin_bottom = 540.0
+text = "Got it"
+
+[connection signal="pressed" from="control/run_button" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="control/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="control/tutorial_background/gotit_button" to="." method="_on_gotit_button_pressed"]
