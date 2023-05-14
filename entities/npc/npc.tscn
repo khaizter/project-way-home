@@ -37,7 +37,10 @@ margin_bottom = 15.0
 text = "E"
 
 [node name="problem_solver" parent="." instance=ExtResource( 4 )]
+initial_code = "ldict = {}"
+checker = "return [ldict['name'], True]"
 
 [connection signal="body_entered" from="." to="." method="_on_npc_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_npc_body_exited"]
 [connection signal="finish_dialogue" from="dialogue" to="." method="_on_dialogue_finish_dialogue"]
+[connection signal="finish_problem" from="problem_solver" to="." method="_on_problem_solver_finish_problem"]

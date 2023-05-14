@@ -1,11 +1,10 @@
 import sys
 def eval():
 	try:
-		name = 
-		passed = False
-		if name != '':
-			passed = True
-		return str(passed)
-	except:
-		return 'Invalid Syntax'
-sys.stdout.write(eval())
+		ldict = {}
+		exec('name = "Khaizter"',globals(),ldict)
+		return [ldict['name'], True]
+	except Exception as error:
+		return [type(error).__name__ + '-' + str(error),False]
+res = eval()
+sys.stdout.write(res[0] + '^' + str(res[1]))

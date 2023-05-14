@@ -3,10 +3,9 @@ import sys
 def eval():
   
   try:
-    # insert user code here
-    
+    # code
 
-    # insert code check here
+    # checker
     passed = False
     if name != '':
       passed = True

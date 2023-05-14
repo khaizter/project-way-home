@@ -5,6 +5,8 @@ export(String) var npc_name
 
 onready var dialogue = $dialogue
 onready var interact_button = $control/interact_button
+onready var problem_solver = $problem_solver
+onready var feedback = $problem_solver/control/code_feedback
 
 var interacting = false
 var player = null
@@ -22,9 +24,9 @@ func interaction():
 		interacting = true
 		print('npc begin interact')
 		player.set_physics_process(false)
-		dialogue.start(1,{"name":"Khaizter"})
+		dialogue.start(0)
 
-func _on_npc_body_entered(body):	
+func _on_npc_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		player_in_range = true
@@ -38,6 +40,15 @@ func _on_npc_body_exited(body):
 
 
 func _on_dialogue_finish_dialogue(page):
-	interacting = false
-	player.set_physics_process(true)
-	print(page)
+	if (page == 0):
+		problem_solver.start()
+	elif (page == 1):
+		interacting = false
+		player.set_physics_process(true)
+
+func _on_problem_solver_finish_problem(output, is_good):
+	if (is_good):
+		problem_solver.stop()
+		dialogue.start(1,{"name":output})
+	else:
+		feedback.text = output
