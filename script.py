@@ -2,7 +2,7 @@ import sys
 def eval():
 	try:
 		ldict = {}
-		exec('name = "Khaizter"',globals(),ldict)
+		exec('''name = "input-field"''',globals(),ldict)
 		return [ldict['name'], True]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]

@@ -46,8 +46,11 @@ func evaluate_code(input):
 	var initial_script = initial_code
 	initial_script = '\t\t' + initial_script.replace("\n","\n\t\t")
 	
+	var regex = RegEx.new()
+	regex.compile("input\\(.*\\)")
+	
 	var user_script = input
-	user_script = "exec('" + user_script.replace("\'","\"") + "',globals(),ldict)"
+	user_script = "exec('''" + regex.sub(user_script.replace("\'","\""), '"input-field"',true) + "''',globals(),ldict)"
 	
 	var check_script = checker	
 	check_script = '\t\t' + check_script.replace("\n","\n\t\t")
