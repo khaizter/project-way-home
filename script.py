@@ -1,9 +1,14 @@
 import sys
 def eval():
 	try:
-		ldict = {}
-		exec('''name = "input-field"''',globals(),ldict)
-		return [ldict['name'], True]
+		ldict = { "name" : "", "age" : "", "department" : ""}
+		exec('''name = "input-field"
+age = "input-field"
+department = "input-field"''',globals(),ldict)
+		if ldict['name'] == "input-field" and ldict['age'] == "input-field" and ldict['department'] == "input-field":
+			return ["Complete Form!", True]
+		else:
+			return ["Incomplete Form!", False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

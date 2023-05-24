@@ -81,12 +81,12 @@ _global_script_class_icons={
 [application]
 
 config/name="project-way-home"
-run/main_scene="res://levels/test_stage.tscn"
+run/main_scene="res://levels/test_stage/test_stage.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-player="*res://singleton/Player.gd"
+Player="*res://singleton/Player.gd"
 
 [editor_plugins]
 

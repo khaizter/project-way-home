@@ -18,4 +18,17 @@ frame = 38
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="control" type="Control" parent="."]
+margin_left = -24.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="interact_button" type="Label" parent="control"]
+margin_left = 20.0
+margin_right = 28.0
+margin_bottom = 14.0
+text = "E"
+
 [connection signal="body_entered" from="." to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_door_body_exited"]

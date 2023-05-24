@@ -4,11 +4,6 @@
 
 [node name="problem_solver" type="CanvasLayer"]
 script = ExtResource( 1 )
-tutorial_text = "Assign your nickname to 'name' variable
-Ex:
-	name = \"Bob\""
-checker = "if name != '':
-	return name"
 
 [node name="control" type="Control" parent="."]
 margin_right = 1024.0

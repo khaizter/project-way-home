@@ -46,6 +46,7 @@ func evaluate_code(input):
 	var initial_script = initial_code
 	initial_script = '\t\t' + initial_script.replace("\n","\n\t\t")
 	
+	#
 	var regex = RegEx.new()
 	regex.compile("input\\(.*\\)")
 	

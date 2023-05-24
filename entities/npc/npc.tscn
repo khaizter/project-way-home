@@ -37,6 +37,10 @@ margin_bottom = 15.0
 text = "E"
 
 [node name="problem_solver" parent="." instance=ExtResource( 4 )]
+visible = false
+tutorial_text = "Assign your Name to 'name' variable
+Ex:
+	name = \"Bob\""
 initial_code = "ldict = {}"
 checker = "return [ldict['name'], True]"
 

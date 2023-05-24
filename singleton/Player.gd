@@ -2,6 +2,8 @@ extends Node
 
 signal player_move(direction, times)
 
+var data_name = "undefined"
+
 func _ready():
 	pass
 
@@ -16,3 +18,10 @@ func moveUp(times = 1):
 	
 func moveDown(times = 1):
 	emit_signal("player_move", Vector2.DOWN, times)
+
+
+func set_name(value):
+	data_name = value
+
+func get_name():
+	return data_name

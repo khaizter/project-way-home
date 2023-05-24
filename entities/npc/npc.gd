@@ -1,5 +1,7 @@
 extends Area2D
 
+signal quest_done()
+
 export(Array,String,FILE, "*.json") var dialogue_files
 export(String) var npc_name
 
@@ -45,10 +47,12 @@ func _on_dialogue_finish_dialogue(page):
 	elif (page == 1):
 		interacting = false
 		player.set_physics_process(true)
+		emit_signal("quest_done")
 
 func _on_problem_solver_finish_problem(output, is_good):
 	if (is_good):
 		problem_solver.stop()
+		Player.set_name(output)
 		dialogue.start(1,{"name":output})
 	else:
 		feedback.text = output
