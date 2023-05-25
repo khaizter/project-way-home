@@ -1,14 +1,12 @@
 import sys
 def eval():
 	try:
-		ldict = { "name" : "", "age" : "", "department" : ""}
-		exec('''name = "input-field"
-age = "input-field"
-department = "input-field"''',globals(),ldict)
-		if ldict['name'] == "input-field" and ldict['age'] == "input-field" and ldict['department'] == "input-field":
-			return ["Complete Form!", True]
+		ldict = { "id" : True, "keycard" : True, "open" : False}
+		exec('''open = True''',globals(),ldict)
+		if ldict['open'] == True:
+			return ["Correct Condition!", True]
 		else:
-			return ["Incomplete Form!", False]
+			return ["Incorrect Condition!", False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

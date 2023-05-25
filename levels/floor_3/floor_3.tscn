@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/door/door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/camera/camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/floor_3/floor_3.gd" type="Script" id=5]
+[ext_resource path="res://entities/computer/computer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/computer_2/computer_2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/computer_3/computer_3.tscn" type="PackedScene" id=8]
 
 [node name="floor_3" type="Node2D"]
 script = ExtResource( 5 )
@@ -17,5 +20,18 @@ tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 
 [node name="door" parent="." instance=ExtResource( 1 )]
 position = Vector2( 240, 88 )
 
+[node name="computer" parent="." instance=ExtResource( 6 )]
+position = Vector2( 152, 56 )
+
+[node name="computer_2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 96, 112 )
+
+[node name="computer_3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 152, 120 )
+
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 88 )
+
+[connection signal="quest_done" from="computer" to="." method="_on_computer_quest_done"]
+[connection signal="quest_done" from="computer_2" to="." method="_on_computer_2_quest_done"]
+[connection signal="quest_done" from="computer_3" to="." method="_on_computer_3_quest_done"]
