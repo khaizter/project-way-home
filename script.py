@@ -1,12 +1,10 @@
 import sys
 def eval():
 	try:
-		ldict = { "id" : True, "keycard" : True, "open" : False}
-		exec('''open = True''',globals(),ldict)
-		if ldict['open'] == True:
-			return ["Correct Condition!", True]
-		else:
-			return ["Incorrect Condition!", False]
+		ldict = {}
+		exec('''for i in range(4, -1, -1):
+	print(i)''',globals(),ldict)
+		return ["You need to print 4-0", False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()
