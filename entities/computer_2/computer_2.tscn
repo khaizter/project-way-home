@@ -46,7 +46,8 @@ text = "E"
 visible = false
 tutorial_text = "Check the conditions
 if floor is equal to 0
-and keycard is present(True)"
+and keycard is present(True)
+set open to True if that's the case"
 initial_code = "ldict = { \"floor\" : 0, \"keycard\" : True, \"open\" : False}"
 checker = "if ldict['open'] == True:
 	return [\"Correct Condition!\", True]

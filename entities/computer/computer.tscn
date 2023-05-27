@@ -44,7 +44,8 @@ text = "E"
 
 [node name="problem_solver" parent="." instance=ExtResource( 3 )]
 visible = false
-tutorial_text = "Check if floor is equal to 0"
+tutorial_text = "Check if floor is equal to 0
+set open to True if that's the case"
 initial_code = "ldict = { \"floor\" : 0, \"open\" : False}"
 checker = "if ldict['open'] == True:
 	return [\"Correct Condition!\", True]

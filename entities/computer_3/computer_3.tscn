@@ -46,7 +46,8 @@ text = "E"
 visible = false
 tutorial_text = "Check the conditions
 either keycard is present(True)
-or id is present(True)"
+or id is present(True)
+set open to True if that's the case"
 initial_code = "ldict = { \"id\" : True, \"keycard\" : True, \"open\" : False}"
 checker = "if ldict['open'] == True:
 	return [\"Correct Condition!\", True]
