@@ -13,6 +13,7 @@ onready var feedback = $problem_solver/control/code_feedback
 var interacting = false
 var player = null
 var player_in_range = false
+var finished = false
 
 func _ready():
 	interact_button.visible = false
@@ -26,7 +27,10 @@ func interaction():
 		interacting = true
 		print('npc begin interact')
 		player.set_physics_process(false)
-		dialogue.start(0)
+		if not finished:
+			dialogue.start(0)
+		else:
+			dialogue.start(2)
 
 func _on_npc_body_entered(body):
 	if body.is_in_group("player"):
@@ -48,6 +52,10 @@ func _on_dialogue_finish_dialogue(page):
 		interacting = false
 		player.set_physics_process(true)
 		emit_signal("quest_done")
+		finished = true
+	elif page == 2:
+		interacting = false
+		player.set_physics_process(true)
 
 func _on_problem_solver_finish_problem(output, is_good):
 	if (is_good):
