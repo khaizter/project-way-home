@@ -2,9 +2,8 @@ import sys
 def eval():
 	try:
 		ldict = {}
-		exec('''for i in range(5,-1 ,-1):
-	print(i)''',globals(),ldict)
-		return ["You need to print 4-0", False]
+		exec('''asd''',globals(),ldict)
+		return [ldict['name'], True]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

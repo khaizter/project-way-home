@@ -2,8 +2,8 @@
 
 [ext_resource path="res://levels/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://levels/floor_1/floor_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/gear/background/menu-background.png" type="Texture" id=3]
 [ext_resource path="res://fonts/minimal_pixel_font.tres" type="DynamicFont" id=4]
-[ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=5]
 [ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=6]
 
 [node name="main_menu" type="CanvasLayer"]
@@ -18,32 +18,37 @@ margin_bottom = 600.0
 margin_right = 304.0
 margin_bottom = 176.0
 rect_scale = Vector2( 3.36838, 3.40904 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="dim" type="ColorRect" parent="control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.607843 )
 
 [node name="game_title" type="Label" parent="control"]
-margin_left = 200.0
-margin_top = 152.0
-margin_right = 323.0
-margin_bottom = 166.0
+margin_left = 120.0
+margin_top = 96.0
+margin_right = 243.0
+margin_bottom = 110.0
 rect_scale = Vector2( 5, 5 )
 custom_fonts/font = ExtResource( 4 )
 text = "PYTHON SIMULATION GAME"
 
 [node name="start_button" type="Button" parent="control"]
-margin_left = 368.0
-margin_top = 280.0
-margin_right = 424.0
-margin_bottom = 297.0
+margin_left = 128.0
+margin_top = 328.0
+margin_right = 184.0
+margin_bottom = 345.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 6 )
 text = "Play"
 icon_align = 1
 
 [node name="exit_button" type="Button" parent="control"]
-margin_left = 368.0
-margin_top = 368.0
-margin_right = 424.0
-margin_bottom = 385.0
+margin_left = 128.0
+margin_top = 416.0
+margin_right = 184.0
+margin_bottom = 433.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 6 )
 text = "Exit"
