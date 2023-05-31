@@ -3,6 +3,8 @@ extends Area2D
 export var level:PackedScene
 
 onready var interact_button = $interact_button
+onready var key = $interact_button/key
+onready var lock = $interact_button/lock
 onready var sprite = $sprite
 
 export var variant = 0
@@ -13,10 +15,17 @@ var open = false
 
 func _ready():
 	interact_button.visible = false
+	key.visible = false
 	sprite.frame = variant
 
 func _process(delta):
 	interact_button.visible = player_in_range
+	if open:
+		key.visible = true
+		lock.visible = false
+	else:
+		lock.visible = true
+		key.visible = false
 
 func enter():
 	if (open):

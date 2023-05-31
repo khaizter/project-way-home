@@ -2,8 +2,8 @@ extends CanvasLayer
 
 signal finish_dialogue(page)
 
-onready var name_label = $background/name
-onready var text_label = $background/text
+onready var name_label = $control/name
+onready var text_label = $control/text
 
 var dialoguePages = []
 var dialogues = []

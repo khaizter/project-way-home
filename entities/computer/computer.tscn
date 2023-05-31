@@ -49,8 +49,23 @@ shape = SubResource( 2 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 3 )]
 visible = false
-tutorial_text = "Check if floor is equal to 0
-set open to True if that's the case"
+tutorial_text = "In computer programming, we use the if statement to run a block code only when a certain condition is met.
+
+In Python, there are three forms of the if...else statement.
+	if condition:
+		# code
+	elif condition:
+		# code
+	else;
+		# code
+
+Don't forget to include tabs in using if blocks.
+
+In this problem check whether the (floor) is equal to 0, then assign (open) to True
+ex.
+	if floor == 0:
+		open = ____
+"
 initial_code = "ldict = { \"floor\" : 0, \"open\" : False}"
 checker = "if ldict['open'] == True:
 	return [\"Correct Condition!\", True]

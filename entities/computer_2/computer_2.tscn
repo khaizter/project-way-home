@@ -49,10 +49,18 @@ shape = SubResource( 2 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 1 )]
 visible = false
-tutorial_text = "Check the conditions
-if floor is equal to 0
-and keycard is present(True)
-set open to True if that's the case"
+tutorial_text = "Logical operators are used to check whether an expression is True or False. They are used in decision-making.
+ex.
+	if condition1 and condition2:
+		#code here
+		
+Here, and is the logical operator AND. Since both condition1 and condition2 are True, the result is True.
+
+In this problem check whether the (floor) is equal to 0 and (keycard) is present(True), then assign (open) to True
+ex.
+	if floor == 0 and keycard:
+		open = ____
+"
 initial_code = "ldict = { \"floor\" : 0, \"keycard\" : True, \"open\" : False}"
 checker = "if ldict['open'] == True:
 	return [\"Correct Condition!\", True]

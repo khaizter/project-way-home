@@ -1,9 +1,9 @@
 import sys
 def eval():
 	try:
-		ldict = {}
-		exec('''name = "Khaizter"''',globals(),ldict)
-		return [ldict['name'], True]
+		ldict = { "name" : "get_name"}
+		exec('''print(name)''',globals(),ldict)
+		return ["You need to print your name!", False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

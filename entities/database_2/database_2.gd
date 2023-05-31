@@ -4,7 +4,7 @@ signal quest_done()
 
 onready var interact_button = $interact_button
 onready var problem_solver = $problem_solver
-onready var feedback = $problem_solver/control/code_feedback
+onready var feedback = $problem_solver/control/code_panel/code_feedback
 
 var interacting = false
 var player = null

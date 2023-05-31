@@ -8,7 +8,7 @@ export(String) var npc_name
 onready var dialogue = $dialogue
 onready var interact_button = $interact_button
 onready var problem_solver = $problem_solver
-onready var feedback = $problem_solver/control/code_feedback
+onready var feedback = $problem_solver/control/code_panel/code_feedback
 
 var interacting = false
 var player = null

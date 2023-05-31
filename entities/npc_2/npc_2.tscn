@@ -81,13 +81,29 @@ anims/idle = SubResource( 4 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 3 )]
 visible = false
-tutorial_text = "print your name to say it"
+tutorial_text = "The print() function prints the specified message you indicate inside the parameter.
+
+The message can be a string, or any other object, the object will be converted into a string before written to the screen.
+
+In this problem you need to print your name.
+ex. 
+	print(name)
+"
 initial_code = "ldict = { \"name\" : \"get_name\"}"
 checker = "return [\"You need to print your name!\", False]"
 
 [node name="problem_solver_2" parent="." instance=ExtResource( 3 )]
 visible = false
-tutorial_text = "Input name, age, department"
+tutorial_text = "The input() function takes input from the user and returns it.
+
+The syntax of input() function is:
+	variable = input()
+
+In this problem you need to take the input for name, age, and department..
+ex. 
+	name = input()
+	age = input()
+	department = ____"
 initial_code = "ldict = { \"name\" : \"\", \"age\" : \"\", \"department\" : \"\"}"
 checker = "if ldict['name'] == \"input-field\" and ldict['age'] == \"input-field\" and ldict['department'] == \"input-field\":
 	return [\"Complete Form!\", True]

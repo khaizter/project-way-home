@@ -1,35 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/dialogue-bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/GUI.png" type="Texture" id=1]
 [ext_resource path="res://entities/dialogue/dialogue.gd" type="Script" id=2]
+[ext_resource path="res://fonts/minimal_pixel_font.tres" type="DynamicFont" id=3]
 
 [node name="dialogue" type="CanvasLayer"]
 script = ExtResource( 2 )
 
-[node name="background" type="NinePatchRect" parent="."]
+[node name="control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="background" type="NinePatchRect" parent="control"]
 margin_left = 240.0
 margin_top = 392.0
-margin_right = 776.0
-margin_bottom = 560.0
+margin_right = 374.0
+margin_bottom = 434.0
+rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )
-region_rect = Rect2( 1, 1, 28, 28 )
+region_rect = Rect2( 49, 97, 30, 30 )
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="name" type="Label" parent="background"]
+[node name="name" type="Label" parent="control"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 72.0
-margin_bottom = 46.0
+margin_left = 272.0
+margin_top = 416.0
+margin_right = 320.0
+margin_bottom = 430.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "\"name\""
 
-[node name="text" type="RichTextLabel" parent="background"]
+[node name="text" type="RichTextLabel" parent="control"]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = 64.0
-margin_top = 56.0
-margin_right = 491.0
-margin_bottom = 123.0
+margin_left = 304.0
+margin_top = 440.0
+margin_right = 524.0
+margin_bottom = 484.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = ExtResource( 3 )
 text = "\"text\""

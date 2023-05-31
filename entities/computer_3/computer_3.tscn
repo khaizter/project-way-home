@@ -49,10 +49,15 @@ shape = SubResource( 2 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 2 )]
 visible = false
-tutorial_text = "Check the conditions
-either keycard is present(True)
-or id is present(True)
-set open to True if that's the case"
+tutorial_text = "Here, or is the logical operator OR. Since either condition1 or condition2 are True, the result is True.
+ex.
+	if condition1 or condition2:
+		#code here
+		
+In this problem check whether (id) is present(True) or (keycard) is present(True), then assign (open) to True
+ex.
+	if id and keycard:
+		open = ____"
 initial_code = "ldict = { \"id\" : True, \"keycard\" : True, \"open\" : False}"
 checker = "if ldict['open'] == True:
 	return [\"Correct Condition!\", True]
