@@ -35,13 +35,13 @@ variant = 1
 position = Vector2( 216, 96 )
 
 [node name="computer" parent="ysort" instance=ExtResource( 6 )]
-position = Vector2( 80, 88 )
+position = Vector2( 72, 80 )
 
 [node name="computer_2" parent="ysort" instance=ExtResource( 7 )]
-position = Vector2( 120, 88 )
+position = Vector2( 120, 80 )
 
 [node name="computer_3" parent="ysort" instance=ExtResource( 8 )]
-position = Vector2( 168, 88 )
+position = Vector2( 168, 80 )
 
 [node name="player" parent="ysort" instance=ExtResource( 3 )]
 position = Vector2( 56, 88 )

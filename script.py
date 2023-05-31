@@ -1,9 +1,10 @@
 import sys
 def eval():
 	try:
-		ldict = { "name" : "get_name"}
-		exec('''print(name)''',globals(),ldict)
-		return ["You need to print your name!", False]
+		ldict = {}
+		exec('''for i in range(5,-1 ,-1):
+	print(i)''',globals(),ldict)
+		return ["You need to print 4-0", False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

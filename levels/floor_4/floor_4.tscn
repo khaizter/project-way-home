@@ -30,10 +30,10 @@ position = Vector2( 240, 48 )
 position = Vector2( 48, 64 )
 
 [node name="database" parent="ysort" instance=ExtResource( 4 )]
-position = Vector2( 104, 72 )
+position = Vector2( 104, 80 )
 
 [node name="database_2" parent="ysort" instance=ExtResource( 6 )]
-position = Vector2( 160, 112 )
+position = Vector2( 160, 80 )
 
 [connection signal="quest_done" from="ysort/database" to="." method="_on_database_quest_done"]
 [connection signal="quest_done" from="ysort/database_2" to="." method="_on_database_2_quest_done"]
