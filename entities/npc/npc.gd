@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 signal quest_done()
 
@@ -26,19 +26,20 @@ func interaction():
 	if (not interacting):
 		interacting = true
 		print('npc begin interact')
-		player.set_physics_process(false)
+		player.freeze()
 		if not finished:
 			dialogue.start(0)
 		else:
 			dialogue.start(2)
 
-func _on_npc_body_entered(body):
+func _on_interact_area_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		player_in_range = true
 		body.connect("player_interact",self,"interaction")
-		
-func _on_npc_body_exited(body):
+
+
+func _on_interact_area_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
 		player_in_range = false
@@ -50,12 +51,12 @@ func _on_dialogue_finish_dialogue(page):
 		problem_solver.start()
 	elif (page == 1):
 		interacting = false
-		player.set_physics_process(true)
+		player.unfreeze()
 		emit_signal("quest_done")
 		finished = true
 	elif page == 2:
 		interacting = false
-		player.set_physics_process(true)
+		player.unfreeze()
 
 func _on_problem_solver_finish_problem(output, is_good):
 	if (is_good):
@@ -64,3 +65,4 @@ func _on_problem_solver_finish_problem(output, is_good):
 		dialogue.start(1,{"name":output})
 	else:
 		feedback.text = output
+

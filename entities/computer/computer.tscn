@@ -8,7 +8,7 @@
 extents = Vector2( 4.5, 4 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 24.0
+radius = 13.0
 
 [node name="computer" type="StaticBody2D"]
 script = ExtResource( 1 )

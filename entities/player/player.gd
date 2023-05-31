@@ -25,9 +25,16 @@ func _input(event):
 	if (event.is_action_pressed("interact")):
 		interact()
 
+func _physics_process(delta):
+	var input_vector = Vector2(float(Input.is_action_pressed("move_right")) - float(Input.is_action_pressed("move_left")), float(Input.is_action_pressed("move_down")) - float(Input.is_action_pressed("move_up")))
+	velocity = input_vector * move_speed
+	
+	update_animation(input_vector)
+	velocity = move_and_slide(velocity)
+	
 func update_animation(input_vector):
 	
-	var moving = input_vector.length() != 0
+	var moving = input_vector.length() != 0 and is_physics_processing()
 	
 	if (input_vector.normalized() == Vector2.DOWN):
 		facing_direction = Vector2.DOWN
@@ -51,14 +58,13 @@ func update_animation(input_vector):
 		sprite.scale.x = -1
 		animation_player.play("walk_side" if moving else "idle_side")
 
-		
-func _physics_process(delta):
+func freeze():
+	set_physics_process(false)
+	update_animation(facing_direction)
 	
-	var input_vector = Vector2(float(Input.is_action_pressed("move_right")) - float(Input.is_action_pressed("move_left")), float(Input.is_action_pressed("move_down")) - float(Input.is_action_pressed("move_up")))
-	velocity = input_vector * move_speed
-	
-	update_animation(input_vector)
-	velocity = move_and_slide(velocity)
+func unfreeze():
+	set_physics_process(true)
+	update_animation(facing_direction)
 	
 func interact():
 	emit_signal("player_interact")

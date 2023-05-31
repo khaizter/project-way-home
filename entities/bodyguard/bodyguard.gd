@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 export(Array,String,FILE, "*.json") var dialogue_files
 export(String) var npc_name
@@ -28,14 +28,14 @@ func interaction():
 		else:
 			dialogue.start(1)
 
-func _on_bodyguard_body_entered(body):
+func _on_interact_area_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		player_in_range = true
 		body.connect("player_interact",self,"interaction")
 
 
-func _on_bodyguard_body_exited(body):
+func _on_interact_area_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
 		player_in_range = false

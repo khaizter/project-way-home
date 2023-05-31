@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 signal quest_done()
 
@@ -35,13 +35,13 @@ func interaction():
 		else:
 			dialogue.start(3)
 
-func _on_npc_2_body_entered(body):
+func _on_interact_area_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		player_in_range = true
 		body.connect("player_interact",self,"interaction")
 
-func _on_npc_2_body_exited(body):
+func _on_interact_area_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
 		player_in_range = false
@@ -76,3 +76,4 @@ func _on_problem_solver_2_finish_problem(output, is_good):
 		dialogue.start(2)
 	else:
 		feedback_2.text = output
+
