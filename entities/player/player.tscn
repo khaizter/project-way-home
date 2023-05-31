@@ -112,16 +112,17 @@ script = ExtResource( 2 )
 move_speed = 75
 
 [node name="shadow" type="Sprite" parent="."]
-position = Vector2( 0, 15 )
+position = Vector2( 0, 3 )
 texture = ExtResource( 3 )
 
 [node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0, -12 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 5
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 12.5 )
+position = Vector2( 0, 0.5 )
 rotation = 1.5708
 shape = SubResource( 10 )
 

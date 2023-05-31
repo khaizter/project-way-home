@@ -21,14 +21,16 @@ texture = ExtResource( 8 )
 [node name="level_maker" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 3, 0, 65536, 10, 0, 65537, 9, 0, 65538, 9, 0, 65539, 5, 0, 65540, 9, 0, 65541, 9, 0, 65542, 8, 0, 65543, 9, 0, 65544, 7, 0, 131072, 10, 0, 131073, 12, 0, 131074, 12, 0, 131075, 12, 0, 131076, 12, 0, 131077, 12, 0, 131078, 12, 0, 131079, 12, 0, 131080, 7, 0, 196608, 10, 0, 196609, 11, 0, 196610, 11, 0, 196611, 11, 0, 196612, 11, 0, 196613, 11, 0, 196614, 11, 0, 196615, 11, 0, 196616, 7, 0, 262144, 17, 0, 262145, 16, 0, 262146, 16, 0, 262147, 16, 0, 262148, 16, 0, 262149, 16, 0, 262150, 16, 0, 262151, 16, 0, 262152, 15, 0 )
 
-[node name="npc" parent="." instance=ExtResource( 3 )]
-position = Vector2( 192, 88 )
-
 [node name="door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 248, 96 )
 level = ExtResource( 7 )
 
-[node name="player" parent="." instance=ExtResource( 5 )]
+[node name="ysort" type="YSort" parent="."]
+
+[node name="player" parent="ysort" instance=ExtResource( 5 )]
 position = Vector2( 72, 88 )
 
-[connection signal="quest_done" from="npc" to="." method="_on_npc_quest_done"]
+[node name="npc" parent="ysort" instance=ExtResource( 3 )]
+position = Vector2( 192, 88 )
+
+[connection signal="quest_done" from="ysort/npc" to="." method="_on_npc_quest_done"]

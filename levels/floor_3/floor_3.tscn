@@ -28,21 +28,23 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 position = Vector2( 248, 88 )
 level = ExtResource( 10 )
 
-[node name="computer" parent="." instance=ExtResource( 6 )]
-position = Vector2( 184, 88 )
+[node name="ysort" type="YSort" parent="."]
 
-[node name="computer_2" parent="." instance=ExtResource( 7 )]
+[node name="bodyguard" parent="ysort" instance=ExtResource( 9 )]
+position = Vector2( 216, 96 )
+
+[node name="computer" parent="ysort" instance=ExtResource( 6 )]
+position = Vector2( 168, 96 )
+
+[node name="computer_2" parent="ysort" instance=ExtResource( 7 )]
 position = Vector2( 88, 88 )
 
-[node name="computer_3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 136, 120 )
+[node name="computer_3" parent="ysort" instance=ExtResource( 8 )]
+position = Vector2( 128, 96 )
 
-[node name="bodyguard" parent="." instance=ExtResource( 9 )]
-position = Vector2( 232, 112 )
-
-[node name="player" parent="." instance=ExtResource( 3 )]
+[node name="player" parent="ysort" instance=ExtResource( 3 )]
 position = Vector2( 56, 88 )
 
-[connection signal="quest_done" from="computer" to="." method="_on_computer_quest_done"]
-[connection signal="quest_done" from="computer_2" to="." method="_on_computer_2_quest_done"]
-[connection signal="quest_done" from="computer_3" to="." method="_on_computer_3_quest_done"]
+[connection signal="quest_done" from="ysort/computer" to="." method="_on_computer_quest_done"]
+[connection signal="quest_done" from="ysort/computer_2" to="." method="_on_computer_2_quest_done"]
+[connection signal="quest_done" from="ysort/computer_3" to="." method="_on_computer_3_quest_done"]

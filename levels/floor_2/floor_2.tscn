@@ -21,14 +21,16 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
 
-[node name="npc_2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 160, 88 )
-
 [node name="door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 248, 88 )
 level = ExtResource( 7 )
 
-[node name="player" parent="." instance=ExtResource( 5 )]
+[node name="ysort" type="YSort" parent="."]
+
+[node name="player" parent="ysort" instance=ExtResource( 5 )]
 position = Vector2( 56, 88 )
 
-[connection signal="quest_done" from="npc_2" to="." method="_on_npc_2_quest_done"]
+[node name="npc_2" parent="ysort" instance=ExtResource( 3 )]
+position = Vector2( 160, 88 )
+
+[connection signal="quest_done" from="ysort/npc_2" to="." method="_on_npc_2_quest_done"]
