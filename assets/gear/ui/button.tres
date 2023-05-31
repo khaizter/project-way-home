@@ -1,0 +1,51 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://assets/gear/ui/button_hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://fonts/minimal_pixel_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/gear/ui/button_normal.tres" type="StyleBox" id=3]
+
+[sub_resource type="Image" id=7]
+data = {
+"data": PoolByteArray( 0, 4, 0, 10, 0, 17, 0, 25, 0, 31, 0, 34, 0, 36, 0, 36, 0, 36, 0, 36, 0, 34, 0, 31, 0, 25, 0, 17, 0, 10, 0, 4, 0, 10, 0, 21, 0, 37, 0, 52, 0, 63, 0, 70, 0, 71, 0, 72, 0, 72, 0, 71, 0, 70, 0, 63, 0, 52, 0, 37, 0, 21, 0, 10, 0, 17, 0, 37, 63, 119, 90, 239, 86, 255, 86, 255, 86, 255, 86, 255, 86, 255, 86, 255, 86, 255, 86, 255, 90, 239, 63, 119, 0, 37, 0, 17, 0, 25, 0, 52, 89, 239, 72, 255, 68, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 68, 255, 72, 255, 89, 239, 0, 52, 0, 25, 0, 31, 0, 63, 84, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 67, 255, 84, 255, 0, 63, 0, 31, 0, 34, 0, 70, 82, 255, 66, 255, 66, 255, 66, 255, 66, 255, 66, 255, 66, 255, 66, 255, 66, 255, 66, 255, 66, 255, 82, 255, 0, 70, 0, 34, 0, 36, 0, 71, 81, 255, 64, 255, 64, 255, 64, 255, 64, 255, 64, 255, 64, 255, 64, 255, 64, 255, 64, 255, 64, 255, 81, 255, 0, 71, 0, 36, 0, 36, 0, 72, 79, 255, 63, 255, 63, 255, 63, 255, 63, 255, 63, 255, 63, 255, 63, 255, 63, 255, 63, 255, 63, 255, 79, 255, 0, 72, 0, 36, 0, 36, 0, 72, 77, 255, 62, 255, 62, 255, 62, 255, 62, 255, 62, 255, 62, 255, 62, 255, 62, 255, 62, 255, 62, 255, 77, 255, 0, 72, 0, 36, 0, 36, 0, 71, 76, 255, 61, 255, 61, 255, 61, 255, 61, 255, 61, 255, 61, 255, 61, 255, 61, 255, 61, 255, 61, 255, 76, 255, 0, 71, 0, 36, 0, 34, 0, 70, 74, 255, 59, 255, 59, 255, 59, 255, 59, 255, 59, 255, 59, 255, 59, 255, 59, 255, 59, 255, 59, 255, 74, 255, 0, 70, 0, 34, 0, 31, 0, 63, 73, 255, 58, 255, 58, 255, 58, 255, 58, 255, 58, 255, 58, 255, 58, 255, 58, 255, 58, 255, 58, 255, 73, 255, 0, 63, 0, 31, 0, 25, 0, 52, 75, 239, 61, 255, 57, 255, 57, 255, 57, 255, 57, 255, 57, 255, 57, 255, 57, 255, 57, 255, 61, 255, 75, 239, 0, 52, 0, 25, 0, 17, 0, 37, 53, 119, 74, 239, 71, 255, 70, 255, 70, 255, 70, 255, 70, 255, 70, 255, 70, 255, 71, 255, 74, 237, 53, 119, 0, 37, 0, 17, 0, 10, 0, 21, 0, 37, 0, 52, 0, 63, 0, 70, 0, 71, 0, 72, 0, 72, 0, 71, 0, 70, 0, 63, 0, 52, 0, 37, 0, 21, 0, 10, 0, 4, 0, 10, 0, 17, 0, 25, 0, 31, 0, 34, 0, 36, 0, 36, 0, 36, 0, 36, 0, 34, 0, 31, 0, 25, 0, 17, 0, 10, 0, 4 ),
+"format": "LumAlpha8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id=5]
+flags = 4
+flags = 4
+image = SubResource( 7 )
+size = Vector2( 16, 16 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+content_margin_left = 6.0
+content_margin_right = 6.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+texture = SubResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 4.0
+margin_right = 4.0
+margin_top = 4.0
+margin_bottom = 4.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+default_font = ExtResource( 2 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = ExtResource( 2 )
+Button/styles/disabled = SubResource( 6 )
+Button/styles/focus = ExtResource( 3 )
+Button/styles/hover = ExtResource( 1 )
+Button/styles/normal = ExtResource( 3 )
+Button/styles/pressed = ExtResource( 1 )
