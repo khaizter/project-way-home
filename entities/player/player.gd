@@ -2,17 +2,10 @@ extends KinematicBody2D
 
 signal player_interact()
 
-onready var right_checker = $right_checker
-onready var left_checker = $left_checker
-onready var down_checker = $down_checker
-onready var up_checker = $up_checker
 onready var animation_player = $animation_player
 onready var sprite = $sprite
 
-onready var initial_position = global_position
 export var move_speed = 10
-var cell_size = 16
-var commands = []
 
 var velocity = Vector2()
 var moving = velocity.normalized().length() != 0

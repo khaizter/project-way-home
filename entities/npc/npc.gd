@@ -6,7 +6,7 @@ export(Array,String,FILE, "*.json") var dialogue_files
 export(String) var npc_name
 
 onready var dialogue = $dialogue
-onready var interact_button = $control/interact_button
+onready var interact_button = $interact_button
 onready var problem_solver = $problem_solver
 onready var feedback = $problem_solver/control/code_feedback
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/gear/player/main-character.png" type="Texture" id=1]
 [ext_resource path="res://entities/player/player.gd" type="Script" id=2]
@@ -7,9 +7,6 @@
 [sub_resource type="CapsuleShape2D" id=10]
 radius = 3.5
 height = 6.0
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 2, 2 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "idle_down"
@@ -125,38 +122,6 @@ vframes = 5
 position = Vector2( 0, 0.5 )
 rotation = 1.5708
 shape = SubResource( 10 )
-
-[node name="right_checker" type="Area2D" parent="."]
-visible = false
-position = Vector2( 16, 0 )
-
-[node name="collision_shape" type="CollisionShape2D" parent="right_checker"]
-modulate = Color( 0.835294, 0.215686, 0.854902, 1 )
-shape = SubResource( 2 )
-
-[node name="left_checker" type="Area2D" parent="."]
-visible = false
-position = Vector2( -16, 0 )
-
-[node name="collision_shape" type="CollisionShape2D" parent="left_checker"]
-modulate = Color( 0.835294, 0.215686, 0.854902, 1 )
-shape = SubResource( 2 )
-
-[node name="down_checker" type="Area2D" parent="."]
-visible = false
-position = Vector2( 0, 16 )
-
-[node name="collision_shape" type="CollisionShape2D" parent="down_checker"]
-modulate = Color( 0.835294, 0.215686, 0.854902, 1 )
-shape = SubResource( 2 )
-
-[node name="up_checker" type="Area2D" parent="."]
-visible = false
-position = Vector2( 0, -16 )
-
-[node name="collision_shape" type="CollisionShape2D" parent="up_checker"]
-modulate = Color( 0.835294, 0.215686, 0.854902, 1 )
-shape = SubResource( 2 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 autoplay = "idle_down"

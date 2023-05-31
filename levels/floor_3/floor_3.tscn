@@ -25,8 +25,9 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 [node name="camera" parent="." instance=ExtResource( 4 )]
 
 [node name="door" parent="." instance=ExtResource( 1 )]
-position = Vector2( 248, 88 )
+position = Vector2( 208, 48 )
 level = ExtResource( 10 )
+variant = 1
 
 [node name="ysort" type="YSort" parent="."]
 

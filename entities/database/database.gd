@@ -2,7 +2,7 @@ extends StaticBody2D
 
 signal quest_done()
 
-onready var interact_button = $control/interact_button
+onready var interact_button = $interact_button
 onready var problem_solver = $problem_solver
 onready var feedback = $problem_solver/control/code_feedback
 

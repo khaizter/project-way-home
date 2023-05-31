@@ -2,13 +2,18 @@ extends Area2D
 
 export var level:PackedScene
 
-onready var interact_button = $control/interact_button
+onready var interact_button = $interact_button
+onready var sprite = $sprite
+
+export var variant = 0
+
 var player_in_range = false
 
 var open = false
 
 func _ready():
 	interact_button.visible = false
+	sprite.frame = variant
 
 func _process(delta):
 	interact_button.visible = player_in_range
