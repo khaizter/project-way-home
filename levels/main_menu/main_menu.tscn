@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://levels/floor_1/floor_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/gear/background/menu-background.png" type="Texture" id=3]
 [ext_resource path="res://fonts/minimal_pixel_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=6]
+[ext_resource path="res://levels/floor_2/floor_2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/floor_3/floor_3.tscn" type="PackedScene" id=8]
 
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource( 1 )
-level = ExtResource( 2 )
+level_1_scene = ExtResource( 2 )
+level_2_scene = ExtResource( 7 )
+level_3_scene = ExtResource( 8 )
+level_4_scene = ExtResource( 5 )
 
 [node name="control" type="Control" parent="."]
 margin_right = 1024.0
@@ -34,7 +40,12 @@ rect_scale = Vector2( 5, 5 )
 custom_fonts/font = ExtResource( 4 )
 text = "PYTHON SIMULATION GAME"
 
-[node name="start_button" type="Button" parent="control"]
+[node name="main" type="Control" parent="control"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="start_button" type="Button" parent="control/main"]
 margin_left = 128.0
 margin_top = 328.0
 margin_right = 184.0
@@ -44,7 +55,7 @@ theme = ExtResource( 6 )
 text = "Play"
 icon_align = 1
 
-[node name="exit_button" type="Button" parent="control"]
+[node name="exit_button" type="Button" parent="control/main"]
 margin_left = 128.0
 margin_top = 416.0
 margin_right = 184.0
@@ -54,5 +65,74 @@ theme = ExtResource( 6 )
 text = "Exit"
 icon_align = 1
 
-[connection signal="pressed" from="control/start_button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="control/exit_button" to="." method="_on_exit_button_pressed"]
+[node name="stages" type="Control" parent="control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="level_1" type="Button" parent="control/stages"]
+margin_left = 128.0
+margin_top = 240.0
+margin_right = 256.0
+margin_bottom = 257.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "1 - Variables"
+align = 0
+
+[node name="level_2" type="Button" parent="control/stages"]
+margin_left = 128.0
+margin_top = 312.0
+margin_right = 256.0
+margin_bottom = 329.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "2 - Input/Print"
+align = 0
+
+[node name="level_3" type="Button" parent="control/stages"]
+margin_left = 128.0
+margin_top = 384.0
+margin_right = 256.0
+margin_bottom = 401.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "3 - If,Else/Logical"
+align = 0
+
+[node name="level_4" type="Button" parent="control/stages"]
+margin_left = 128.0
+margin_top = 456.0
+margin_right = 256.0
+margin_bottom = 473.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "4 - Loops"
+align = 0
+
+[node name="level_5" type="Button" parent="control/stages"]
+margin_left = 536.0
+margin_top = 240.0
+margin_right = 664.0
+margin_bottom = 257.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "5 - Methods"
+align = 0
+
+[node name="back" type="Button" parent="control/stages"]
+margin_left = 760.0
+margin_top = 528.0
+margin_right = 840.0
+margin_bottom = 545.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "Back"
+
+[connection signal="pressed" from="control/main/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="control/main/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="control/stages/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="control/stages/level_2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="control/stages/level_3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="control/stages/level_4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="control/stages/level_5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="control/stages/back" to="." method="_on_back_pressed"]
