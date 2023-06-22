@@ -33,9 +33,9 @@ script = ExtResource( 3 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 2 )]
 visible = false
-tutorial_text = "n this problem you need to print 0 to 4 in sequence.
+tutorial_text = "n this problem you need to print 4 to 0 in sequence.
 ex.
-	for i in range(5, -1, -1):
+	for i in range(4, -1, -1):
 		print(i)"
 initial_code = "ldict = {}"
 checker = "return [\"You need to print 4-0\", False]"

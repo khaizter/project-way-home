@@ -6,7 +6,6 @@ export var level_3_scene:PackedScene
 export var level_4_scene:PackedScene
 export var level_5_scene:PackedScene
 
-
 onready var main = $control/main
 onready var stages = $control/stages
 onready var level_1 = $"control/stages/level_1"

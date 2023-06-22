@@ -27,7 +27,6 @@ func _on_game_interface_freeze():
 func _on_game_interface_unfreeze():
 	player.unfreeze()
 
-
 func _on_database_freeze_player():
 	player.freeze()
 	game_interface.visible = false
