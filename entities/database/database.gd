@@ -19,7 +19,7 @@ func _process(delta):
 func interaction():
 	if (not interacting):
 		interacting = true
-		player.set_physics_process(false)
+		player.freeze()
 		problem_solver.start()
 
 func _on_interact_area_body_entered(body):
@@ -39,7 +39,7 @@ func _on_problem_solver_finish_problem(output, is_good):
 	if ("0\r\n1\r\n2\r\n3\r\n4\r\n" in output):
 		problem_solver.stop()
 		interacting = false
-		player.set_physics_process(true)
+		player.unfreeze()
 		emit_signal("quest_done")
 	else:
 		feedback.text = output

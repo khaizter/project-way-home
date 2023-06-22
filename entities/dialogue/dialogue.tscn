@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/GUI.png" type="Texture" id=1]
 [ext_resource path="res://entities/dialogue/dialogue.gd" type="Script" id=2]
-[ext_resource path="res://fonts/minimal_pixel_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=3]
 
 [node name="dialogue" type="CanvasLayer"]
 script = ExtResource( 2 )

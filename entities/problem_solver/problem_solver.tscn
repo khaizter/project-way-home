@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/problem_solver/problem_solver.gd" type="Script" id=1]
 [ext_resource path="res://assets/gear/ui/GUI.png" type="Texture" id=2]
-[ext_resource path="res://fonts/minimal_pixel_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=4]
 [ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=5]
 
@@ -101,14 +100,14 @@ margin_top = 64.0
 margin_right = 432.0
 margin_bottom = 197.0
 rect_scale = Vector2( 3, 3 )
-custom_fonts/normal_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 5 )
 text = "tutorial"
 
 [node name="gotit_button" type="Button" parent="control/tutorial_panel"]
-margin_left = 640.0
-margin_top = 480.0
-margin_right = 668.0
-margin_bottom = 498.0
+margin_left = 575.0
+margin_top = 474.0
+margin_right = 621.0
+margin_bottom = 492.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 4 )
 text = "Got it!"
