@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/camera/camera.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/database_2/database_2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/floor_4/floor_4.gd" type="Script" id=7]
 [ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=8]
+[ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=9]
 
 [node name="floor_4" type="Node2D"]
 script = ExtResource( 7 )
@@ -35,5 +36,13 @@ position = Vector2( 104, 80 )
 [node name="database_2" parent="ysort" instance=ExtResource( 6 )]
 position = Vector2( 160, 80 )
 
+[node name="game_interface" parent="." instance=ExtResource( 9 )]
+
+[connection signal="freeze_player" from="ysort/database" to="." method="_on_database_freeze_player"]
 [connection signal="quest_done" from="ysort/database" to="." method="_on_database_quest_done"]
+[connection signal="unfreeze_player" from="ysort/database" to="." method="_on_database_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/database_2" to="." method="_on_database_freeze_player"]
 [connection signal="quest_done" from="ysort/database_2" to="." method="_on_database_2_quest_done"]
+[connection signal="unfreeze_player" from="ysort/database_2" to="." method="_on_database_unfreeze_player"]
+[connection signal="freeze" from="game_interface" to="." method="_on_game_interface_freeze"]
+[connection signal="unfreeze" from="game_interface" to="." method="_on_game_interface_unfreeze"]

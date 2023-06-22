@@ -1,6 +1,8 @@
 extends StaticBody2D
 
 signal quest_done()
+signal freeze_player()
+signal unfreeze_player()
 
 onready var interact_button = $interact_button
 onready var problem_solver = $problem_solver
@@ -19,7 +21,7 @@ func _process(delta):
 func interaction():
 	if (not interacting):
 		interacting = true
-		player.freeze()
+		emit_signal("freeze_player")
 		problem_solver.start()
 
 func _on_interact_area_body_entered(body):
@@ -39,7 +41,7 @@ func _on_problem_solver_finish_problem(output, is_good):
 	if ("0\r\n1\r\n2\r\n3\r\n4\r\n" in output):
 		problem_solver.stop()
 		interacting = false
-		player.unfreeze()
+		emit_signal("unfreeze_player")
 		emit_signal("quest_done")
 	else:
 		feedback.text = output

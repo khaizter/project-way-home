@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://entities/door/door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://entities/bodyguard/bodyguard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=11]
+[ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=12]
 
 [node name="floor_3" type="Node2D"]
 script = ExtResource( 5 )
@@ -46,6 +47,16 @@ position = Vector2( 168, 80 )
 [node name="player" parent="ysort" instance=ExtResource( 3 )]
 position = Vector2( 56, 88 )
 
+[node name="game_interface" parent="." instance=ExtResource( 12 )]
+
+[connection signal="freeze_player" from="ysort/computer" to="." method="_on_computer_freeze_player"]
 [connection signal="quest_done" from="ysort/computer" to="." method="_on_computer_quest_done"]
+[connection signal="unfreeze_player" from="ysort/computer" to="." method="_on_computer_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/computer_2" to="." method="_on_computer_freeze_player"]
 [connection signal="quest_done" from="ysort/computer_2" to="." method="_on_computer_2_quest_done"]
+[connection signal="unfreeze_player" from="ysort/computer_2" to="." method="_on_computer_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/computer_3" to="." method="_on_computer_freeze_player"]
 [connection signal="quest_done" from="ysort/computer_3" to="." method="_on_computer_3_quest_done"]
+[connection signal="unfreeze_player" from="ysort/computer_3" to="." method="_on_computer_unfreeze_player"]
+[connection signal="freeze" from="game_interface" to="." method="_on_game_interface_freeze"]
+[connection signal="unfreeze" from="game_interface" to="." method="_on_game_interface_unfreeze"]

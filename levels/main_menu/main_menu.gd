@@ -58,3 +58,7 @@ func _on_level_5_pressed():
 
 
 
+
+
+func _on_reset_button_pressed():
+	pass # Replace with function body.

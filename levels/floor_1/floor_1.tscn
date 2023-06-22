@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/camera/camera.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/gear/ui/tutorial.png" type="Texture" id=10]
 [ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=11]
 [ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=12]
+[ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=13]
 
 [node name="floor_1" type="Node2D"]
 script = ExtResource( 6 )
@@ -134,5 +135,11 @@ margin_bottom = 135.0
 theme = ExtResource( 12 )
 text = "Continue"
 
+[node name="game_interface" parent="." instance=ExtResource( 13 )]
+
+[connection signal="freeze_player" from="ysort/npc" to="." method="_on_npc_freeze_player"]
 [connection signal="quest_done" from="ysort/npc" to="." method="_on_npc_quest_done"]
+[connection signal="unfreeze_player" from="ysort/npc" to="." method="_on_npc_unfreeze_player"]
 [connection signal="pressed" from="tutorial_layer/control/tutorial_page/continue" to="." method="_on_continue_pressed"]
+[connection signal="freeze" from="game_interface" to="." method="_on_game_interface_freeze"]
+[connection signal="unfreeze" from="game_interface" to="." method="_on_game_interface_unfreeze"]

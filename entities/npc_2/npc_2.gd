@@ -1,6 +1,8 @@
 extends StaticBody2D
 
 signal quest_done()
+signal freeze_player()
+signal unfreeze_player()
 
 export(Array,String,FILE, "*.json") var dialogue_files
 export(String) var npc_name
@@ -28,7 +30,7 @@ func interaction():
 	if (not interacting):
 		interacting = true
 		print('npc begin interact')
-		player.freeze()
+		emit_signal("freeze_player")
 		var name = Player.get_name()
 		if not finished:
 			dialogue.start(0,{"name": name})
@@ -55,12 +57,12 @@ func _on_dialogue_finish_dialogue(page):
 		problem_solver_2.start()
 	elif (page == 2):
 		interacting = false
-		player.unfreeze()
+		emit_signal("unfreeze_player")
 		emit_signal("quest_done")
 		finished = true
 	elif (page == 3):
 		interacting = false
-		player.unfreeze()
+		emit_signal("unfreeze_player")
 
 func _on_problem_solver_finish_problem(output, is_good):
 	if ("get_name" in output):

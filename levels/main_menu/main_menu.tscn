@@ -41,7 +41,6 @@ custom_fonts/font = ExtResource( 4 )
 text = "PYTHON SIMULATION GAME"
 
 [node name="main" type="Control" parent="control"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -65,7 +64,18 @@ theme = ExtResource( 6 )
 text = "Exit"
 icon_align = 1
 
+[node name="reset_button" type="Button" parent="control/main"]
+margin_left = 720.0
+margin_top = 520.0
+margin_right = 792.0
+margin_bottom = 537.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 6 )
+text = "Reset Data"
+icon_align = 1
+
 [node name="stages" type="Control" parent="control"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -130,6 +140,7 @@ text = "Back"
 
 [connection signal="pressed" from="control/main/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="control/main/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="control/main/reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="control/stages/level_1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="control/stages/level_2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="control/stages/level_3" to="." method="_on_level_3_pressed"]
