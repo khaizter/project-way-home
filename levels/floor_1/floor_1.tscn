@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/camera/camera.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://levels/floor_1/floor_1.gd" type="Script" id=6]
 [ext_resource path="res://levels/floor_2/floor_2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=8]
+[ext_resource path="res://assets/gear/ui/GUI.png" type="Texture" id=9]
+[ext_resource path="res://assets/gear/ui/tutorial.png" type="Texture" id=10]
+[ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=12]
 
 [node name="floor_1" type="Node2D"]
 script = ExtResource( 6 )
@@ -33,4 +37,102 @@ position = Vector2( 72, 88 )
 [node name="npc" parent="ysort" instance=ExtResource( 3 )]
 position = Vector2( 192, 88 )
 
+[node name="tutorial_layer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="control" type="Control" parent="tutorial_layer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="dim" type="ColorRect" parent="tutorial_layer/control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.607843 )
+
+[node name="tutorial_page" type="NinePatchRect" parent="tutorial_layer/control"]
+margin_left = 67.0
+margin_top = 42.0
+margin_right = 289.0
+margin_bottom = 170.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 96, 48, 32 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 5
+
+[node name="tutorial_image" type="TextureRect" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 44.0
+margin_top = 24.0
+margin_right = 163.0
+margin_bottom = 97.0
+texture = ExtResource( 10 )
+
+[node name="W" type="Label" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 64.0
+margin_top = 66.0
+margin_right = 72.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 11 )
+text = "W"
+
+[node name="A" type="Label" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 49.0
+margin_top = 81.0
+margin_right = 57.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 11 )
+text = "A"
+
+[node name="S" type="Label" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 64.0
+margin_top = 81.0
+margin_right = 72.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 11 )
+text = "S"
+
+[node name="D" type="Label" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 79.0
+margin_top = 81.0
+margin_right = 87.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 11 )
+text = "D"
+
+[node name="E" type="Label" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 154.0
+margin_top = 74.0
+margin_right = 162.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 11 )
+text = "E"
+
+[node name="movement_label" type="Label" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 44.0
+margin_top = 99.0
+margin_right = 92.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 11 )
+text = "Movement"
+
+[node name="interact_label" type="Label" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 131.0
+margin_top = 99.0
+margin_right = 181.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 11 )
+text = "Interact
+"
+
+[node name="continue" type="Button" parent="tutorial_layer/control/tutorial_page"]
+margin_left = 171.0
+margin_top = 118.0
+margin_right = 236.0
+margin_bottom = 135.0
+theme = ExtResource( 12 )
+text = "Continue"
+
 [connection signal="quest_done" from="ysort/npc" to="." method="_on_npc_quest_done"]
+[connection signal="pressed" from="tutorial_layer/control/tutorial_page/continue" to="." method="_on_continue_pressed"]

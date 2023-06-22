@@ -28,7 +28,7 @@ func interaction():
 	if (not interacting):
 		interacting = true
 		print('npc begin interact')
-		player.set_physics_process(false)
+		player.freeze()
 		var name = Player.get_name()
 		if not finished:
 			dialogue.start(0,{"name": name})
@@ -55,12 +55,12 @@ func _on_dialogue_finish_dialogue(page):
 		problem_solver_2.start()
 	elif (page == 2):
 		interacting = false
-		player.set_physics_process(true)
+		player.unfreeze()
 		emit_signal("quest_done")
 		finished = true
 	elif (page == 3):
 		interacting = false
-		player.set_physics_process(true)
+		player.unfreeze()
 
 func _on_problem_solver_finish_problem(output, is_good):
 	if ("get_name" in output):

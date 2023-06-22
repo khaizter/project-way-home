@@ -21,6 +21,7 @@ margin_bottom = 600.0
 color = Color( 0, 0, 0, 0.607843 )
 
 [node name="code_panel" type="Control" parent="control"]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 
@@ -78,7 +79,6 @@ theme = ExtResource( 4 )
 text = "RESET"
 
 [node name="tutorial_panel" type="Control" parent="control"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
