@@ -70,3 +70,8 @@ func evaluate_code(input):
 func _on_gotit_button_pressed():
 	code_panel.visible = true
 	tutorial_panel.visible = false
+
+
+func _on_back_button_pressed():
+	code_panel.visible = false
+	tutorial_panel.visible = true

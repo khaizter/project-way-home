@@ -20,7 +20,6 @@ margin_bottom = 600.0
 color = Color( 0, 0, 0, 0.607843 )
 
 [node name="code_panel" type="Control" parent="control"]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 
@@ -77,7 +76,17 @@ rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 4 )
 text = "RESET"
 
+[node name="back_button" type="Button" parent="control/code_panel"]
+margin_left = 872.0
+margin_top = 32.0
+margin_right = 902.0
+margin_bottom = 49.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 4 )
+text = "BACK"
+
 [node name="tutorial_panel" type="Control" parent="control"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -114,4 +123,5 @@ text = "Got it!"
 
 [connection signal="pressed" from="control/code_panel/run_button" to="." method="_on_run_button_pressed"]
 [connection signal="pressed" from="control/code_panel/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="control/code_panel/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="control/tutorial_panel/gotit_button" to="." method="_on_gotit_button_pressed"]
