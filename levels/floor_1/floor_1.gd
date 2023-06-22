@@ -5,6 +5,7 @@ onready var door = $door
 onready var tutorial_layer = $tutorial_layer
 onready var player = $ysort/player
 onready var game_interface = $game_interface
+onready var menu_confirm_sfx = $menu_confirm_sfx
 
 var task_1 = false
 
@@ -22,6 +23,7 @@ func _on_npc_quest_done():
 	task_1 = true
 
 func _on_continue_pressed():
+	menu_confirm_sfx.play()
 	tutorial_layer.visible = false
 	game_interface.visible = true
 	player.unfreeze()
