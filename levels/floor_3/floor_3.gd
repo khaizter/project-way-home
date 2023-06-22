@@ -17,6 +17,7 @@ func _process(delta):
 	if task_1 and task_2 and task_3:
 		bodyguard.working_elevator = true
 		door.open = true
+		Player.unlock_level("4")
 
 func _on_computer_quest_done():
 	task_1 = true

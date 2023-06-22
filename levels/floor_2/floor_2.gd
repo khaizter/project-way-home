@@ -13,6 +13,7 @@ func _ready():
 func _process(delta):
 	if task_1:
 		door.open = true
+		Player.unlock_level("3")
 
 func _on_npc_2_quest_done():
 	task_1 = true
