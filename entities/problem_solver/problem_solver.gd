@@ -32,6 +32,7 @@ func stop():
 
 func _on_run_button_pressed():
 	var result = evaluate_code(code_editor.text).split("^")
+	print("test",result)
 	emit_signal("finish_problem",result[0], result[1] == 'True')
 
 func _on_reset_button_pressed():
@@ -44,7 +45,6 @@ func evaluate_code(input):
 	var initial_script = initial_code
 	initial_script = '\t\t' + initial_script.replace("\n","\n\t\t")
 	
-	#
 	var regex = RegEx.new()
 	regex.compile("input\\(.*\\)")
 	
@@ -60,11 +60,11 @@ func evaluate_code(input):
 	var new_script = SCRIPT_TEMPLATE.replace("#code", user_script).replace("#checker",check_script).replace("#initial",initial_script)
 	file.store_string(new_script)
 	file.close()
-
+ 
 	# evaluate code
 	var global_dir_path = ProjectSettings.globalize_path("res://")
 	var stdout = []
-	var exit = OS.execute("python",[global_dir_path + "/script.py"],true , stdout,true)
+	var exit = OS.execute("python3",[global_dir_path + "/script.py"],true , stdout,true)
 	return stdout[0]
 
 func _on_gotit_button_pressed():
