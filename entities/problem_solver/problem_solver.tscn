@@ -77,10 +77,10 @@ theme = ExtResource( 4 )
 text = "RESET"
 
 [node name="back_button" type="Button" parent="control/code_panel"]
-margin_left = 872.0
-margin_top = 32.0
-margin_right = 902.0
-margin_bottom = 49.0
+margin_left = 720.0
+margin_top = 45.0
+margin_right = 750.0
+margin_bottom = 62.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 4 )
 text = "BACK"
