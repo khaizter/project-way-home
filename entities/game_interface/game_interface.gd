@@ -5,6 +5,10 @@ signal unfreeze()
 
 export(Array,String, MULTILINE) var notes_data
 
+export(String, MULTILINE) var tutorial_text
+export(String, MULTILINE) var initial_code
+export(String, MULTILINE) var checker
+
 onready var main_layer = $main
 onready var menu_layer = $menu
 onready var diary_layer = $diary
@@ -24,6 +28,14 @@ onready var menu_confirm_sfx = $menu_confirm_sfx
 onready var menu_back_sfx = $menu_back_sfx
 onready var page_confirm_sfx = $page_confirm_sfx
 onready var page_back_sfx = $page_back_sfx
+
+onready var code_editor = $phone/code_editor
+onready var code_feedback = $phone/code_feedback
+
+const SCRIPT_FILE = "res://script.py"
+
+const SCRIPT_TEMPLATE = "import sys\ndef eval():\n\ttry:\n#initial\n\t\t#code\n#checker\n\texcept Exception as error:\n\t\treturn [type(error).__name__ + '-' + str(error),False]\nres = eval()\nsys.stdout.write(res[0] + '^' + str(res[1]))"
+
 
 func _ready():
 	main_layer.visible = true
@@ -120,3 +132,46 @@ func _on_back_to_page_button_pressed():
 	page_back_sfx.play()
 	page_layer.visible = true
 	notes_layer.visible = false
+
+
+func _on_run_phone_button_pressed():
+	var result = evaluate_code(code_editor.text).split("^")
+	print("test ",result)
+#	emit_signal("finish_problem",result[0], result[1] == 'True')
+	if "default_output" in result[0]:
+		code_feedback.text = result[0].replace('default_output','')
+		pass
+	else:
+		code_feedback.text = result[0]
+
+
+func _on_reset_phone_button_pressed():
+	code_editor.text = ''
+
+func evaluate_code(input):
+	# do transformations on user script and check script
+	
+	var initial_script = initial_code
+	initial_script = '\t\t' + initial_script.replace("\n","\n\t\t")
+	
+	var regex = RegEx.new()
+	regex.compile("input\\(.*\\)")
+	
+	var user_script = input
+	user_script = "exec('''" + regex.sub(user_script.replace("\'","\""), '"input-field"',true) + "''',globals(),ldict)"
+	
+	var check_script = checker	
+	check_script = '\t\t' + check_script.replace("\n","\n\t\t")
+	
+	# edit script.py
+	var file = File.new()
+	file.open(SCRIPT_FILE,File.WRITE)
+	var new_script = SCRIPT_TEMPLATE.replace("#code", user_script).replace("#checker",check_script).replace("#initial",initial_script)
+	file.store_string(new_script)
+	file.close()
+ 
+	# evaluate code
+	var global_dir_path = ProjectSettings.globalize_path("res://")
+	var stdout = []
+	var exit = OS.execute("python",[global_dir_path + "/script.py"],true , stdout,true)
+	return stdout[0]

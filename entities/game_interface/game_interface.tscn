@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/gear/ui/menu.png" type="Texture" id=1]
 [ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sfx/menu_confirm.wav" type="AudioStream" id=8]
 [ext_resource path="res://sfx/page_confirm.wav" type="AudioStream" id=9]
 [ext_resource path="res://sfx/page_back.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/gear/ui/phone.png" type="Texture" id=11]
 
 [node name="game_interface" type="CanvasLayer"]
 script = ExtResource( 3 )
@@ -70,6 +71,8 @@ ex.
 	# prints 3, 2, 1, 0
 	for i in range(4, -1, -1):
 		print(i)", "test5" ]
+initial_code = "ldict = {}"
+checker = "return [\"default_output\", True]"
 
 [node name="main" type="Control" parent="."]
 visible = false
@@ -140,6 +143,7 @@ theme = ExtResource( 2 )
 text = "Exit Game"
 
 [node name="diary" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -244,7 +248,6 @@ theme = ExtResource( 2 )
 text = "Close Diary"
 
 [node name="phone" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -261,6 +264,57 @@ margin_bottom = 522.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 2 )
 text = "Close Phone"
+
+[node name="run_phone_button" type="Button" parent="phone"]
+margin_left = 816.0
+margin_top = 216.0
+margin_right = 862.0
+margin_bottom = 236.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 2 )
+text = "Run"
+
+[node name="reset_phone_button" type="Button" parent="phone"]
+margin_left = 816.0
+margin_top = 312.0
+margin_right = 862.0
+margin_bottom = 332.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 2 )
+text = "Reset"
+
+[node name="background" type="NinePatchRect" parent="phone"]
+margin_left = 232.0
+margin_top = 448.0
+margin_right = 308.0
+margin_bottom = 588.0
+rect_rotation = -90.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 11 )
+patch_margin_left = 4
+patch_margin_top = 10
+patch_margin_right = 4
+patch_margin_bottom = 10
+
+[node name="code_editor" type="TextEdit" parent="phone"]
+margin_left = 272.0
+margin_top = 160.0
+margin_right = 512.0
+margin_bottom = 248.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 6 )
+highlight_current_line = true
+show_line_numbers = true
+draw_tabs = true
+
+[node name="code_feedback" type="TextEdit" parent="phone"]
+margin_left = 272.0
+margin_top = 344.0
+margin_right = 512.0
+margin_bottom = 388.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 6 )
+readonly = true
 
 [node name="menu_confirm_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
@@ -288,3 +342,5 @@ stream = ExtResource( 10 )
 [connection signal="pressed" from="diary/notes_layer/back_to_page_button" to="." method="_on_back_to_page_button_pressed"]
 [connection signal="pressed" from="diary/close_diary_button" to="." method="_on_close_diary_button_pressed"]
 [connection signal="pressed" from="phone/close_phone_button" to="." method="_on_close_phone_button_pressed"]
+[connection signal="pressed" from="phone/run_phone_button" to="." method="_on_run_phone_button_pressed"]
+[connection signal="pressed" from="phone/reset_phone_button" to="." method="_on_reset_phone_button_pressed"]
