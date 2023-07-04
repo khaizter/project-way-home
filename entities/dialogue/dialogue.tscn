@@ -39,7 +39,17 @@ modulate = Color( 0, 0, 0, 1 )
 margin_left = 304.0
 margin_top = 440.0
 margin_right = 524.0
-margin_bottom = 484.0
+margin_bottom = 480.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/normal_font = ExtResource( 3 )
 text = "\"text\""
+
+[node name="tool_tip" type="Label" parent="control"]
+margin_left = 464.0
+margin_top = 520.0
+margin_right = 614.0
+margin_bottom = 534.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0.54902, 0.54902, 0.54902, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "[Press space to continue]"
