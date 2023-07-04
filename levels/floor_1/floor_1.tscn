@@ -137,6 +137,7 @@ theme = ExtResource( 12 )
 text = "Continue"
 
 [node name="game_interface" parent="." instance=ExtResource( 13 )]
+visible = false
 
 [node name="menu_confirm_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )

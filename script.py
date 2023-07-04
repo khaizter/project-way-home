@@ -2,8 +2,8 @@ import sys
 def eval():
 	try:
 		ldict = {}
-		exec('''print(1 +3)''',globals(),ldict)
-		return ["default_output", True]
+		exec('''name = "asdf"''',globals(),ldict)
+		return [ldict['name'], True]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

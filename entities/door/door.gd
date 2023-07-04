@@ -6,6 +6,7 @@ onready var interact_button = $interact_button
 onready var key = $interact_button/key
 onready var lock = $interact_button/lock
 onready var sprite = $sprite
+onready var open_indicator = $open_indicator
 
 export var variant = 0
 
@@ -15,11 +16,13 @@ var open = false
 
 func _ready():
 	interact_button.visible = false
+	open_indicator.visible = false
 	key.visible = false
 	sprite.frame = variant
 
 func _process(delta):
 	interact_button.visible = player_in_range
+	open_indicator.visible = open if not interact_button.visible else false
 	if open:
 		key.visible = true
 		lock.visible = false
