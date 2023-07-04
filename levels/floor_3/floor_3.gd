@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var door = $door
-onready var bodyguard = $bodyguard
+onready var bodyguard = $ysort/bodyguard
 
 onready var player = $ysort/player
 onready var game_interface = $game_interface
