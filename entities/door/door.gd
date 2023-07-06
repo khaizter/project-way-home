@@ -36,6 +36,7 @@ func enter():
 		if (level):
 			get_tree().change_scene_to(level)
 	else :
+		Notification.show_notification("Complete the task first")
 		print("complete first")
 
 func _on_door_body_entered(body):

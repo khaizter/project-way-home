@@ -87,6 +87,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Player="*res://singleton/Player.gd"
+Notification="*res://singleton/notification.tscn"
 
 [display]
 
