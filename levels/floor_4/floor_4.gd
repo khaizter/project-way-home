@@ -14,6 +14,7 @@ func _ready():
 func _process(delta):
 	if task_1 and task_2:
 		door.open = true
+		Player.unlock_level("5")
 
 func _on_database_quest_done():
 	task_1 = true
