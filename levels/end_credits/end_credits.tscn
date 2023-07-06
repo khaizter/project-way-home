@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/gear/background/menu-background.png" type="Texture" id=1]
+[ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=3]
+[ext_resource path="res://levels/end_credits/end_credits.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "show"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("control/text:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 288, 128 ), Vector2( 288, -580 ) ]
+}
+
+[node name="end_credits" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="background" type="TextureRect" parent="control"]
+margin_right = 304.0
+margin_bottom = 176.0
+rect_scale = Vector2( 3.36838, 3.40904 )
+texture = ExtResource( 1 )
+
+[node name="dim" type="ColorRect" parent="control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.607843 )
+
+[node name="text" type="RichTextLabel" parent="control"]
+margin_left = 288.0
+margin_top = 128.0
+margin_right = 470.0
+margin_bottom = 272.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Credits
+
+Programmer
+Khaizter Vash Topacio
+
+Animation/Graphics
+Glenn Gargar
+
+Script Writer
+Ronneth Joy Gervacio"
+
+[node name="continue_button" type="Button" parent="control"]
+margin_left = 792.0
+margin_top = 504.0
+margin_right = 844.0
+margin_bottom = 524.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 3 )
+text = "Continue"
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+autoplay = "show"
+anims/show = SubResource( 1 )
+
+[connection signal="pressed" from="control/continue_button" to="." method="_on_continue_button_pressed"]
