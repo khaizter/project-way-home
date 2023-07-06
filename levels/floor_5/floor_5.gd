@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	if task_1 and task_2:
-		get_tree().change_scene("res://levels/main_menu/main_menu.tscn")
+		get_tree().change_scene("res://levels/end_credits/end_credits.tscn")
 
 func _on_master_computer_unfreeze_player():
 	player.unfreeze()

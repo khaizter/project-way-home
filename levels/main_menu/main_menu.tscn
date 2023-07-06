@@ -76,6 +76,16 @@ theme = ExtResource( 6 )
 text = "Reset Data"
 icon_align = 1
 
+[node name="credits_button" type="Button" parent="control/main"]
+margin_left = 128.0
+margin_top = 497.0
+margin_right = 184.0
+margin_bottom = 514.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 6 )
+text = "Credits"
+icon_align = 1
+
 [node name="stages" type="Control" parent="control"]
 visible = false
 margin_right = 40.0
@@ -149,6 +159,7 @@ stream = ExtResource( 10 )
 [connection signal="pressed" from="control/main/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="control/main/exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="control/main/reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="control/main/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="control/stages/level_1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="control/stages/level_2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="control/stages/level_3" to="." method="_on_level_3_pressed"]

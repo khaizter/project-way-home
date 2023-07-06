@@ -71,3 +71,7 @@ func _on_reset_button_pressed():
 	menu_back_sfx.play()
 	Player.reset_data()
 	init()
+
+
+func _on_credits_button_pressed():
+	get_tree().change_scene("res://levels/end_credits/end_credits.tscn")
