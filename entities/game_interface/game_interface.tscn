@@ -72,7 +72,23 @@ In this problem you need to print 4 to 0 in sequence.
 ex.
 	# prints 3, 2, 1, 0
 	for i in range(4, -1, -1):
-		print(i)", "test5" ]
+		print(i)", "A function is a block of code which only runs when it is called.
+
+You can use by using the function name followed by parenthesis
+ex:
+	function_name()
+
+Here's an example of a function printing an output:
+def my_function():
+	print(\"Hello from a function\")
+
+A function can return data as a result by using 'return' as a keyword to return a value.
+ex.
+def give_number():
+	return 5
+a = give_number()
+
+Don't forget the colon in defining your function." ]
 initial_code = "ldict = {}"
 checker = "return [\"default_output\", True]"
 

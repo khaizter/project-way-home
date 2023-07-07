@@ -2,9 +2,12 @@ import sys
 def eval():
 	try:
 		ldict = {}
-		exec('''for i in range(5):
-	print(i)''',globals(),ldict)
-		return ["You need to print 0-4", False]
+		exec('''def download():
+	return "files"''',globals(),ldict)
+		if ldict['download']() == 'files':
+			return ["Files retrieved.", True]
+		else:
+			return ["Make a download function.", False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

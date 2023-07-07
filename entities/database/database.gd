@@ -38,8 +38,7 @@ func _on_interact_area_body_exited(body):
 		body.disconnect("player_interact",self,"interaction")
 
 func _on_problem_solver_finish_problem(output, is_good):
-	print('test',output)
-	if ("0\r\n1\r\n2\r\n3\r\n4\r\n" in output):
+	if ("0\n1\n2\n3\n4\n" in output):
 		problem_solver.stop()
 		interacting = false
 		emit_signal("unfreeze_player")

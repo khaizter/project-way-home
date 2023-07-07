@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://levels/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://levels/floor_1/floor_1.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://levels/floor_3/floor_3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sfx/menu_confirm.wav" type="AudioStream" id=9]
 [ext_resource path="res://sfx/menu_back.wav" type="AudioStream" id=10]
+[ext_resource path="res://levels/floor_5/floor_5.tscn" type="PackedScene" id=11]
 
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -17,6 +18,7 @@ level_1_scene = ExtResource( 2 )
 level_2_scene = ExtResource( 7 )
 level_3_scene = ExtResource( 8 )
 level_4_scene = ExtResource( 5 )
+level_5_scene = ExtResource( 11 )
 
 [node name="control" type="Control" parent="."]
 margin_right = 1024.0
