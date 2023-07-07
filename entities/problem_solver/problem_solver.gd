@@ -64,7 +64,7 @@ func evaluate_code(input):
 	# evaluate code
 	var global_dir_path = ProjectSettings.globalize_path("res://")
 	var stdout = []
-	var exit = OS.execute("python",[global_dir_path + "/script.py"],true , stdout,true)
+	var exit = OS.execute("python3",[global_dir_path + "/script.py"],true , stdout,true)
 	return stdout[0]
 
 func _on_gotit_button_pressed():

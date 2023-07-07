@@ -49,11 +49,11 @@ custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_fonts/normal_font = ExtResource( 2 )
 text = "Credits
 
-Programmer
+Lead Programmer
 Khaizter Vash Topacio
 
 Animation/Graphics
-Glenn Gargar
+Glenn Ace Limuel Gargar
 
 Script Writer
 Ronneth Joy Gervacio"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/camera/camera.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://levels/floor_4/floor_4.gd" type="Script" id=7]
 [ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=8]
 [ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/painting_2/painting_2.tscn" type="PackedScene" id=10]
 
 [node name="floor_4" type="Node2D"]
 script = ExtResource( 7 )
@@ -24,6 +25,9 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 
 [node name="door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 240, 48 )
+
+[node name="painting_2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 64, 48 )
 
 [node name="ysort" type="YSort" parent="."]
 
