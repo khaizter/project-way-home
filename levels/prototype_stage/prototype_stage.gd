@@ -1,5 +1,7 @@
 extends Node2D
 
+export(Array,Array,String, MULTILINE) var notes_data
+
 onready var player = $ysort/player
 onready var game_interface = $game_interface
 

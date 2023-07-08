@@ -81,14 +81,6 @@ anims/idle = SubResource( 3 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 4 )]
 visible = false
-tutorial_text = "Variables are containers that hold a value, such as a piece of text or a number.
-
-You can assign a value to a variable, like x or y, using the equal sign:
-
-Ex:
-	name = \"Bob\""
-initial_code = "ldict = {}"
-checker = "return [ldict['name'], True]"
 
 [node name="interact_area" type="Area2D" parent="."]
 position = Vector2( 0, -12 )

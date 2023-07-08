@@ -10,6 +10,7 @@
 
 [node name="prototype_stage" type="Node2D"]
 script = ExtResource( 7 )
+notes_data = [ [ "", "", "" ], [  ], [  ] ]
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 152, 88 )

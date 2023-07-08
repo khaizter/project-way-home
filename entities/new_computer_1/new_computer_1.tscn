@@ -46,9 +46,8 @@ script = ExtResource( 5 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 1 )]
 visible = false
-tutorial_text = "Using the variable method assign your name with the variable name \"name\" and REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!"
-initial_code = "ldict = {}"
-checker = "return [ldict['name'], True]"
+problem_list = [ [ "Using the variable method assign your name with the variable name \"name\" and REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!", "ldict = {}", "return [ldict['name'], True]" ], [ "Using the variable method assign your name with the variable name \"mynameis\" and REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!", "ldict = {}", "return [ldict['mynameis'], True]" ], [ "Using the variable method assign your name with the variable name \"iam\" and REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!", "ldict = {}", "return [ldict['iam'], True]" ], [ "Using the variable method assign your name with the variable name \"x\" and REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!", "ldict = {}", "return [ldict['x'], True]" ], [ "Using the variable method assign your name with the variable name \"name\" and age with the variable name \"age\" and REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!", "ldict = {}", "if [ldict['name']] and [ldict['age']]:
+	return [ldict['name'], True]" ] ]
 
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

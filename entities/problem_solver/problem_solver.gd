@@ -3,9 +3,11 @@ extends CanvasLayer
 signal finish_problem(output, is_good)
 signal close()
 
-export(String, MULTILINE) var tutorial_text
-export(String, MULTILINE) var initial_code
-export(String, MULTILINE) var checker
+export(Array,Array,String, MULTILINE) var problem_list
+
+var tutorial_text = ""
+var initial_code = ""
+var checker = ""
 
 onready var code_panel = $control/code_panel
 onready var code_editor = $control/code_panel/code_editor
@@ -20,6 +22,17 @@ const SCRIPT_FILE = "res://script.py"
 const SCRIPT_TEMPLATE = "import sys\ndef eval():\n\ttry:\n#initial\n\t\t#code\n#checker\n\texcept Exception as error:\n\t\treturn [type(error).__name__ + '-' + str(error),False]\nres = eval()\nsys.stdout.write(res[0] + '^' + str(res[1]))"
 
 func _ready():
+	randomize()
+	
+	var selected_problem = problem_list[randi() % problem_list.size()]
+	tutorial_text = selected_problem[0]
+	initial_code = selected_problem[1]
+	checker = selected_problem[2]
+	
+	print('a: ',tutorial_text)
+	print('b: ',initial_code)
+	print('c: ',checker)
+	
 	tutorial.text = tutorial_text
 	visible = false
 	
@@ -50,7 +63,7 @@ func evaluate_code(input):
 	var user_script = input
 	user_script = "exec('''" + regex.sub(user_script.replace("\'","\""), '"input-field"',true) + "''',globals(),ldict)"
 	
-	var check_script = checker	
+	var check_script = checker
 	check_script = '\t\t' + check_script.replace("\n","\n\t\t")
 	
 	# edit script.py
