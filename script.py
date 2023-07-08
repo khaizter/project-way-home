@@ -1,10 +1,9 @@
 import sys
 def eval():
 	try:
-		ldict= {"name" : "", "age": ""}
-		exec('''name = "input-field"
-age = "input-field"''',globals(),ldict)
-		if ldict["name"] == "input-field" and ldict["age"] == "input-field":
+		ldict= {"name" : ""}
+		exec('''name = "input-field"''',globals(),ldict)
+		if ldict["name"] == "input-field":
 			return ["Complete Form!", True]
 		else:
 			return ["Incomplete Form!", False]
