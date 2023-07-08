@@ -52,6 +52,7 @@ func _on_problem_solver_finish_problem(output, is_good):
 		emit_signal("unfreeze_player")
 		emit_signal("quest_done")
 		task_done = true
+		Notification.show_notification("Task Complete!")
 	else:
 		feedback.text = output
 

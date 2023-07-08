@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/gear/ui/small_button.png" type="Texture" id=1]
 [ext_resource path="res://assets/gear/shadow/shadow.png" type="Texture" id=2]
 [ext_resource path="res://assets/gear/npc/npc_2.png" type="Texture" id=3]
 [ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=4]
 [ext_resource path="res://entities/new_npc_1/new_npc_1.gd" type="Script" id=5]
-[ext_resource path="res://entities/problem_solver/problem_solver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/lesson_module/lesson_module.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/dialogue/dialogue.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.5
@@ -32,6 +33,7 @@ radius = 13.0
 
 [node name="new_npc_1" type="KinematicBody2D"]
 script = ExtResource( 5 )
+dialogue_files = [ "res://dialogues/recruiter-1.json", "res://dialogues/recruiter-2.json", "res://dialogues/recruiter-3.json" ]
 
 [node name="shadow" type="Sprite" parent="."]
 position = Vector2( 0, 3 )
@@ -75,11 +77,20 @@ valign = 1
 autoplay = "idle"
 anims/idle = SubResource( 2 )
 
-[node name="problem_solver" parent="." instance=ExtResource( 6 )]
+[node name="dialogue" parent="." instance=ExtResource( 7 )]
 visible = false
-tutorial_text = "Using the variable method assign your name with the variable name \"name\" and REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!"
-initial_code = "ldict = {}"
-checker = "return [ldict['name'], True]"
+
+[node name="lesson_module" parent="." instance=ExtResource( 6 )]
+visible = false
+text = "Variables are containers that hold a value, such as a piece of text or a number. REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!
+In programming, data type is an important concept.
+Variables can store data of different types, and different types can do different things.
+In this lesson we will use STRING variable [which is denoted by \"\" ] and INTEGER variable [which is denoted by numerical such as: 1]
+
+You can assign a value to a variable, like x or y or YOUR NAME, using the equal sign:
+Ex: 
+variablename1 = “variable_value” [#This is a String Variable!]
+variablename2 = 69 [#This is a Integer Variable!]"
 
 [node name="interact_area" type="Area2D" parent="."]
 position = Vector2( 0, -12 )
@@ -88,5 +99,7 @@ position = Vector2( 0, -12 )
 position = Vector2( 0, 13 )
 shape = SubResource( 3 )
 
+[connection signal="finish_dialogue" from="dialogue" to="." method="_on_dialogue_finish_dialogue"]
+[connection signal="hide" from="lesson_module" to="." method="_on_lesson_module_hide"]
 [connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="interact_area" to="." method="_on_interact_area_body_exited"]
