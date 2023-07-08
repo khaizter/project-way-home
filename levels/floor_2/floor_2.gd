@@ -54,7 +54,6 @@ func _on_new_npc_2_unfreeze_player():
 	game_interface.visible = true
 
 
-
 func _on_new_npc_2_start_solving():
 	computer_1.enable()
 

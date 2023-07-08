@@ -51,7 +51,7 @@ problem_list = [ [ "In this problem check whether the “floor” is equal to 0,
 	return [\"Correct Condition!\", True]
 else:
 	return [\"Incorrect Condition!\", False]" ], [ "In this problem check whether the \"floor\" is equal to (\"unlocked\"), then assign \"open\" to True", "ldict = {\"floor\" : \"unlocked\", \"open\" : False}
-", "if ldict[\"open\"] == \"unlocked\":
+", "if ldict[\"open\"] ==  True:
 	return [\"Correct Condition!\", True]
 else:
 	return [\"Incorrect Condition!\", False]" ] ]

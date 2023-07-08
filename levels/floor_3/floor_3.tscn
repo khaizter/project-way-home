@@ -5,10 +5,10 @@
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/camera/camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/floor_3/floor_3.gd" type="Script" id=5]
-[ext_resource path="res://entities/computer/computer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://entities/computer_2/computer_2.tscn" type="PackedScene" id=7]
-[ext_resource path="res://entities/computer_3/computer_3.tscn" type="PackedScene" id=8]
-[ext_resource path="res://entities/bodyguard/bodyguard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/new_computer_4/new_computer_4.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/new_computer_6/new_computer_6.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/new_computer_5/new_computer_5.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/new_npc_3/new_npc_3.tscn" type="PackedScene" id=9]
 [ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=11]
 [ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=12]
@@ -26,37 +26,40 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 [node name="camera" parent="." instance=ExtResource( 4 )]
 
 [node name="door" parent="." instance=ExtResource( 1 )]
-position = Vector2( 208, 48 )
+position = Vector2( 240, 48 )
 level = ExtResource( 10 )
 variant = 1
 
 [node name="ysort" type="YSort" parent="."]
 
-[node name="bodyguard" parent="ysort" instance=ExtResource( 9 )]
-position = Vector2( 216, 96 )
-
-[node name="computer" parent="ysort" instance=ExtResource( 6 )]
-position = Vector2( 72, 80 )
-
-[node name="computer_2" parent="ysort" instance=ExtResource( 7 )]
-position = Vector2( 120, 80 )
-
-[node name="computer_3" parent="ysort" instance=ExtResource( 8 )]
-position = Vector2( 168, 80 )
-
 [node name="player" parent="ysort" instance=ExtResource( 3 )]
-position = Vector2( 56, 88 )
+position = Vector2( 48, 112 )
+
+[node name="new_computer_4" parent="ysort" instance=ExtResource( 6 )]
+position = Vector2( 112, 72 )
+
+[node name="new_computer_5" parent="ysort" instance=ExtResource( 8 )]
+position = Vector2( 160, 72 )
+
+[node name="new_computer_6" parent="ysort" instance=ExtResource( 7 )]
+position = Vector2( 208, 72 )
+
+[node name="new_npc_3" parent="ysort" instance=ExtResource( 9 )]
+position = Vector2( 64, 88 )
 
 [node name="game_interface" parent="." instance=ExtResource( 12 )]
 
-[connection signal="freeze_player" from="ysort/computer" to="." method="_on_computer_freeze_player"]
-[connection signal="quest_done" from="ysort/computer" to="." method="_on_computer_quest_done"]
-[connection signal="unfreeze_player" from="ysort/computer" to="." method="_on_computer_unfreeze_player"]
-[connection signal="freeze_player" from="ysort/computer_2" to="." method="_on_computer_freeze_player"]
-[connection signal="quest_done" from="ysort/computer_2" to="." method="_on_computer_2_quest_done"]
-[connection signal="unfreeze_player" from="ysort/computer_2" to="." method="_on_computer_unfreeze_player"]
-[connection signal="freeze_player" from="ysort/computer_3" to="." method="_on_computer_freeze_player"]
-[connection signal="quest_done" from="ysort/computer_3" to="." method="_on_computer_3_quest_done"]
-[connection signal="unfreeze_player" from="ysort/computer_3" to="." method="_on_computer_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/new_computer_4" to="." method="_on_new_computer_freeze_player"]
+[connection signal="quest_done" from="ysort/new_computer_4" to="." method="_on_new_computer_4_quest_done"]
+[connection signal="unfreeze_player" from="ysort/new_computer_4" to="." method="_on_new_computer_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/new_computer_5" to="." method="_on_new_computer_freeze_player"]
+[connection signal="quest_done" from="ysort/new_computer_5" to="." method="_on_new_computer_5_quest_done"]
+[connection signal="unfreeze_player" from="ysort/new_computer_5" to="." method="_on_new_computer_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/new_computer_6" to="." method="_on_new_computer_freeze_player"]
+[connection signal="quest_done" from="ysort/new_computer_6" to="." method="_on_new_computer_6_quest_done"]
+[connection signal="unfreeze_player" from="ysort/new_computer_6" to="." method="_on_new_computer_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/new_npc_3" to="." method="_on_new_npc_3_freeze_player"]
+[connection signal="start_solving" from="ysort/new_npc_3" to="." method="_on_new_npc_3_start_solving"]
+[connection signal="unfreeze_player" from="ysort/new_npc_3" to="." method="_on_new_npc_3_unfreeze_player"]
 [connection signal="freeze" from="game_interface" to="." method="_on_game_interface_freeze"]
 [connection signal="unfreeze" from="game_interface" to="." method="_on_game_interface_unfreeze"]

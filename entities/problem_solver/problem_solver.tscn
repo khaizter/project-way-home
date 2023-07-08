@@ -77,17 +77,6 @@ rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 4 )
 text = "RESET"
 
-[node name="close_button" type="Button" parent="control/code_panel"]
-margin_left = 432.0
-margin_top = 16.0
-margin_right = 450.0
-margin_bottom = 33.0
-rect_scale = Vector2( 4, 4 )
-theme = ExtResource( 4 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
-text = "X"
-
 [node name="tutorial_panel" type="Control" parent="control"]
 margin_right = 512.0
 margin_bottom = 600.0
@@ -114,6 +103,17 @@ rect_scale = Vector2( 3, 3 )
 custom_fonts/normal_font = ExtResource( 5 )
 text = "question here"
 
+[node name="close_button" type="Button" parent="control"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 26.0
+margin_bottom = 25.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 4 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "X"
+
 [connection signal="pressed" from="control/code_panel/run_button" to="." method="_on_run_button_pressed"]
 [connection signal="pressed" from="control/code_panel/reset_button" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="control/code_panel/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="control/close_button" to="." method="_on_close_button_pressed"]

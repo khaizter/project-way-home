@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://entities/painting_1/npc_2/npc_2.gd" type="Script" id=1]
+[ext_resource path="res://entities/npc_2/npc_2.gd" type="Script" id=1]
 [ext_resource path="res://assets/gear/ui/small_button.png" type="Texture" id=2]
 [ext_resource path="res://entities/problem_solver/problem_solver.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/dialogue/dialogue.tscn" type="PackedScene" id=4]

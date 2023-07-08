@@ -7,7 +7,7 @@
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/new_computer_1/new_computer_1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/prototype_stage/prototype_stage.gd" type="Script" id=7]
-[ext_resource path="res://entities/painting_1/npc_2/new_npc_1/new_npc_1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/new_npc_1/new_npc_1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/door/door.tscn" type="PackedScene" id=9]
 
 [node name="prototype_stage" type="Node2D"]

@@ -33,7 +33,7 @@ func interaction():
 			emit_signal("freeze_player")
 			problem_solver.start()
 		else:
-			Notification.show_notification("Interact with Manong Guard first")
+			Notification.show_notification("Interact with the Guard first")
 
 func _on_interact_area_body_entered(body):
 	if body.is_in_group("player"):
