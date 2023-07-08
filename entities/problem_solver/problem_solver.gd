@@ -33,10 +33,6 @@ func _ready():
 	initial_code = selected_problem[1]
 	checker = selected_problem[2]
 	
-	print('a: ',tutorial_text)
-	print('b: ',initial_code)
-	print('c: ',checker)
-	
 	tutorial.text = tutorial_text
 	visible = false
 	

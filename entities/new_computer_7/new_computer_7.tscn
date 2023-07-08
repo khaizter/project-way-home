@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://entities/problem_solver/problem_solver.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/gear/levelmaker/thesis_objects.png" type="Texture" id=3]
+[ext_resource path="res://assets/gear/ui/small_button.png" type="Texture" id=4]
+[ext_resource path="res://assets/gear/ui/check-mark.png" type="Texture" id=5]
+[ext_resource path="res://entities/new_computer_7/new_computer_7.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 4.25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 5.5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("interact_button:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -7, -34 ), Vector2( -7, -33 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("check_mark:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5, -31 ), Vector2( -5, -30 ) ]
+}
+
+[node name="new_computer_7" type="StaticBody2D"]
+script = ExtResource( 6 )
+
+[node name="problem_solver" parent="." instance=ExtResource( 1 )]
+visible = false
+problem_list = [ [ "Assume that the variable named \"a\" is given with a numerical value of 7, find the sum by assigning the \"sum\" variable as variable name and the variable value is the variable \"a\" and a integer that will add the total numerical value into a 10.", "ldict = {\"a\" : 7, \"sum\" : 0}", "if ldict[\"sum\"] == 10:
+	return [\"Correct Calculation!\", True]
+else:
+	return [\"Incorrect Calculation!\", False]" ], [ "Assume that the variable named \"s\" is given with a numerical value of 10, find the difference by assigning the \"difference\" as variable name wherein the value of the variable is the variable named \"s\" and a integer that will output the numerical value 7.", "ldict = {\"s\" : 10, \"difference\" : 0}", "if ldict[\"difference\"] == 7:
+	return [\"Correct Calculation!\", True]
+else:
+	return [\"Incorrect Calculation!\", False]" ], [ "If the variable named \"x\" has a numerical value of 1, find the product wherein you assign the variable name \"product\" then set the value with the variable \"x\" as the <1st> number of the equation and a integer on the <2nd> number of the equation that will output the numerical value 5.", "ldict = {\"x\" : 1, \"product\" : 0}", "if ldict[\"product\"] == 5:
+	return [\"Correct Calculation!\", True]
+else:
+	return [\"Incorrect Calculation!\", False]" ], [ "Assume that the variable named \"y\" & \"z\" is given with a numerical value of 2, find the quotient wherein you assign the variable name \"quotient\" that values: the first operand is the variable \"y\" and the 2nd operand is the variable \"z\"", "ldict = {\"y\" : 2, \"z\" : 2,  \"quotient\" : 0}", "if ldict[\"quotient\"] == 1:
+	return [\"Correct Calculation!\", True]
+else:
+	return [\"Incorrect Calculation!\", False]" ] ]
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 1, 1, 30, 31 )
+
+[node name="collission_shape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 11.25 )
+shape = SubResource( 1 )
+
+[node name="interact_area" type="Area2D" parent="."]
+position = Vector2( 0, 16 )
+
+[node name="collission_shape" type="CollisionShape2D" parent="interact_area"]
+modulate = Color( 0.643137, 0.807843, 0.0509804, 1 )
+shape = SubResource( 2 )
+
+[node name="interact_button" type="Control" parent="."]
+margin_left = -7.0
+margin_top = -34.0
+margin_right = 7.0
+margin_bottom = -20.0
+
+[node name="background" type="TextureRect" parent="interact_button"]
+margin_right = 14.0
+margin_bottom = 14.0
+texture = ExtResource( 4 )
+
+[node name="label" type="Label" parent="interact_button"]
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 15.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 2 )
+text = "E"
+align = 1
+valign = 1
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 3 )
+
+[node name="check_mark" type="Control" parent="."]
+margin_left = -5.0
+margin_top = -31.0
+margin_right = 5.0
+margin_bottom = -22.0
+
+[node name="background" type="TextureRect" parent="check_mark"]
+margin_right = 10.0
+margin_bottom = 9.0
+texture = ExtResource( 5 )
+
+[connection signal="close" from="problem_solver" to="." method="_on_problem_solver_close"]
+[connection signal="finish_problem" from="problem_solver" to="." method="_on_problem_solver_finish_problem"]
+[connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact_area" to="." method="_on_interact_area_body_exited"]
