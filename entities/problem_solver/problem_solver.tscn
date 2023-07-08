@@ -20,14 +20,15 @@ margin_bottom = 600.0
 color = Color( 0, 0, 0, 0.607843 )
 
 [node name="code_panel" type="Control" parent="control"]
+margin_left = 512.0
 margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="background" type="NinePatchRect" parent="control/code_panel"]
-margin_left = 232.0
-margin_top = 72.0
-margin_right = 372.0
-margin_bottom = 186.0
+margin_left = -10.0
+margin_top = 24.0
+margin_right = 119.0
+margin_bottom = 162.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 2, 34, 44, 44 )
@@ -37,10 +38,10 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 
 [node name="code_editor" type="TextEdit" parent="control/code_panel"]
-margin_left = 264.0
-margin_top = 104.0
-margin_right = 512.0
-margin_bottom = 228.0
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 248.0
+margin_bottom = 172.0
 rect_scale = Vector2( 2, 2 )
 theme = SubResource( 1 )
 custom_fonts/font = ExtResource( 5 )
@@ -49,51 +50,52 @@ show_line_numbers = true
 draw_tabs = true
 
 [node name="code_feedback" type="TextEdit" parent="control/code_panel"]
-margin_left = 264.0
-margin_top = 376.0
-margin_right = 483.0
-margin_bottom = 453.0
+margin_left = 16.0
+margin_top = 304.0
+margin_right = 325.0
+margin_bottom = 381.0
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = ExtResource( 5 )
 text = "error feedback"
 readonly = true
 
 [node name="run_button" type="Button" parent="control/code_panel"]
-margin_left = 616.0
-margin_top = 368.0
-margin_right = 652.0
-margin_bottom = 383.0
+margin_left = 272.0
+margin_top = 456.0
+margin_right = 308.0
+margin_bottom = 473.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 4 )
 text = "RUN"
 
 [node name="reset_button" type="Button" parent="control/code_panel"]
-margin_left = 616.0
-margin_top = 440.0
-margin_right = 652.0
-margin_bottom = 455.0
+margin_left = 80.0
+margin_top = 456.0
+margin_right = 116.0
+margin_bottom = 473.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 4 )
 text = "RESET"
 
-[node name="back_button" type="Button" parent="control/code_panel"]
-margin_left = 720.0
-margin_top = 45.0
-margin_right = 750.0
-margin_bottom = 62.0
+[node name="close_button" type="Button" parent="control/code_panel"]
+margin_left = 432.0
+margin_top = 16.0
+margin_right = 450.0
+margin_bottom = 33.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 4 )
-text = "BACK"
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "X"
 
 [node name="tutorial_panel" type="Control" parent="control"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 512.0
+margin_bottom = 600.0
 
 [node name="background" type="NinePatchRect" parent="control/tutorial_panel"]
-margin_left = 232.0
+margin_left = 16.0
 margin_top = 24.0
-margin_right = 372.0
+margin_right = 136.0
 margin_bottom = 162.0
 rect_scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
@@ -104,24 +106,14 @@ patch_margin_right = 6
 patch_margin_bottom = 5
 
 [node name="tutorial" type="RichTextLabel" parent="control/tutorial_panel"]
-margin_left = 272.0
+margin_left = 56.0
 margin_top = 64.0
-margin_right = 432.0
-margin_bottom = 197.0
+margin_right = 189.0
+margin_bottom = 221.0
 rect_scale = Vector2( 3, 3 )
 custom_fonts/normal_font = ExtResource( 5 )
-text = "tutorial"
-
-[node name="gotit_button" type="Button" parent="control/tutorial_panel"]
-margin_left = 575.0
-margin_top = 474.0
-margin_right = 621.0
-margin_bottom = 492.0
-rect_scale = Vector2( 4, 4 )
-theme = ExtResource( 4 )
-text = "Got it!"
+text = "question here"
 
 [connection signal="pressed" from="control/code_panel/run_button" to="." method="_on_run_button_pressed"]
 [connection signal="pressed" from="control/code_panel/reset_button" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="control/code_panel/back_button" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="control/tutorial_panel/gotit_button" to="." method="_on_gotit_button_pressed"]
+[connection signal="pressed" from="control/code_panel/close_button" to="." method="_on_close_button_pressed"]

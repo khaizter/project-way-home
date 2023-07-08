@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal finish_problem(output, is_good)
+signal close()
 
 export(String, MULTILINE) var tutorial_text
 export(String, MULTILINE) var initial_code
@@ -20,8 +21,6 @@ const SCRIPT_TEMPLATE = "import sys\ndef eval():\n\ttry:\n#initial\n\t\t#code\n#
 
 func _ready():
 	tutorial.text = tutorial_text
-	tutorial_panel.visible = true
-	code_panel.visible = false
 	visible = false
 	
 func start():
@@ -32,12 +31,12 @@ func stop():
 
 func _on_run_button_pressed():
 	var result = evaluate_code(code_editor.text).split("^")
-	print("test",result)
+	print("test compiler: ",result)
 	emit_signal("finish_problem",result[0], result[1] == 'True')
 
 func _on_reset_button_pressed():
 	code_editor.text = ''
-	pass # Replace with function body.
+	pass
 
 func evaluate_code(input):
 	# do transformations on user script and check script
@@ -64,14 +63,8 @@ func evaluate_code(input):
 	# evaluate code
 	var global_dir_path = ProjectSettings.globalize_path("res://")
 	var stdout = []
-	var exit = OS.execute("python3",[global_dir_path + "/script.py"],true , stdout,true)
+	var exit = OS.execute("python",[global_dir_path + "/script.py"],true , stdout,true)
 	return stdout[0]
 
-func _on_gotit_button_pressed():
-	code_panel.visible = true
-	tutorial_panel.visible = false
-
-
-func _on_back_button_pressed():
-	code_panel.visible = false
-	tutorial_panel.visible = true
+func _on_close_button_pressed():
+	emit_signal("close")
