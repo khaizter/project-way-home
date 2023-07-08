@@ -38,7 +38,7 @@ func _on_continue_pressed():
 
 # npc
 func _on_new_npc_1_start_solving():
-	computer.can_solve = true
+	computer.enable()
 
 func _on_new_npc_1_freeze_player():
 	player.freeze()

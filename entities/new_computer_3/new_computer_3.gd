@@ -33,7 +33,8 @@ func interaction():
 			emit_signal("freeze_player")
 			problem_solver.start()
 		else:
-			Notification.show_notification("Interact with the lady first")
+			Notification.show_notification("Interact with Robert first")
+
 
 func _on_interact_area_body_entered(body):
 	if body.is_in_group("player"):
@@ -41,16 +42,17 @@ func _on_interact_area_body_entered(body):
 		player_in_range = true
 		body.connect("player_interact",self,"interaction")
 
+
 func _on_interact_area_body_exited(body):
 	if body.is_in_group("player"):
 		player = null
 		player_in_range = false
 		body.disconnect("player_interact",self,"interaction")
 
+
 func _on_problem_solver_finish_problem(output, is_good, index):
 	if (is_good):
 		problem_solver.stop()
-		Player.set_name(output)
 		interacting = false
 		emit_signal("unfreeze_player")
 		emit_signal("quest_done")
