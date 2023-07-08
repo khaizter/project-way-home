@@ -14,6 +14,8 @@ var player = null
 var player_in_range = false
 var task_done = false
 
+var can_solve = false
+
 func _ready():
 	interact_button.visible = false
 	check_mark.visible = false
@@ -26,9 +28,12 @@ func interaction():
 	if task_done:
 		return
 	if (not interacting):
-		interacting = true
-		emit_signal("freeze_player")
-		problem_solver.start()
+		if can_solve:
+			interacting = true
+			emit_signal("freeze_player")
+			problem_solver.start()
+		else:
+			Notification.show_notification("Interact with the lady first")
 
 func _on_interact_area_body_entered(body):
 	if body.is_in_group("player"):
@@ -43,11 +48,10 @@ func _on_interact_area_body_exited(body):
 		player_in_range = false
 		body.disconnect("player_interact",self,"interaction")
 
-func _on_problem_solver_finish_problem(output, is_good):
+func _on_problem_solver_finish_problem(output, is_good, index):
 	if (is_good):
 		problem_solver.stop()
 		Player.set_name(output)
-#		dialogue.start(1,{"name":output})
 		interacting = false
 		emit_signal("unfreeze_player")
 		emit_signal("quest_done")

@@ -1,13 +1,11 @@
 extends CanvasLayer
 
-signal finish_problem(output, is_good)
+signal finish_problem(output, is_good, index)
 signal close()
 
 export(Array,Array,String, MULTILINE) var problem_list
 
-var tutorial_text = ""
-var initial_code = ""
-var checker = ""
+
 
 onready var code_panel = $control/code_panel
 onready var code_editor = $control/code_panel/code_editor
@@ -21,10 +19,16 @@ const SCRIPT_FILE = "res://script.py"
 
 const SCRIPT_TEMPLATE = "import sys\ndef eval():\n\ttry:\n#initial\n\t\t#code\n#checker\n\texcept Exception as error:\n\t\treturn [type(error).__name__ + '-' + str(error),False]\nres = eval()\nsys.stdout.write(res[0] + '^' + str(res[1]))"
 
+var tutorial_text = ""
+var initial_code = ""
+var checker = ""
+var selected_random_index = 0
+
 func _ready():
 	randomize()
 	
-	var selected_problem = problem_list[randi() % problem_list.size()]
+	selected_random_index = randi() % problem_list.size()
+	var selected_problem = problem_list[selected_random_index]
 	tutorial_text = selected_problem[0]
 	initial_code = selected_problem[1]
 	checker = selected_problem[2]
@@ -45,7 +49,7 @@ func stop():
 func _on_run_button_pressed():
 	var result = evaluate_code(code_editor.text).split("^")
 	print("test compiler: ",result)
-	emit_signal("finish_problem",result[0], result[1] == 'True')
+	emit_signal("finish_problem",result[0], result[1] == 'True', selected_random_index)
 
 func _on_reset_button_pressed():
 	code_editor.text = ''

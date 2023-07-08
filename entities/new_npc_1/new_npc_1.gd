@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal freeze_player()
 signal unfreeze_player()
+signal start_solving()
 
 export(Array,String,FILE, "*.json") var dialogue_files
 
@@ -60,6 +61,7 @@ func _on_dialogue_finish_dialogue(page):
 func _on_lesson_module_hide():
 	interacting = false
 	emit_signal("unfreeze_player")
+	emit_signal("start_solving")
 
 func set_dialogue_page(value):
 	current_page = value

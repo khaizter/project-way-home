@@ -43,6 +43,7 @@ position = Vector2( 77, 94 )
 [connection signal="quest_done" from="ysort/new_computer_1" to="." method="_on_new_computer_1_quest_done"]
 [connection signal="unfreeze_player" from="ysort/new_computer_1" to="." method="_on_new_computer_1_unfreeze_player"]
 [connection signal="freeze_player" from="ysort/new_npc_1" to="." method="_on_new_npc_1_freeze_player"]
+[connection signal="start_solving" from="ysort/new_npc_1" to="." method="_on_new_npc_1_start_solving"]
 [connection signal="unfreeze_player" from="ysort/new_npc_1" to="." method="_on_new_npc_1_unfreeze_player"]
 [connection signal="freeze" from="game_interface" to="." method="_on_game_interface_freeze"]
 [connection signal="unfreeze" from="game_interface" to="." method="_on_game_interface_unfreeze"]

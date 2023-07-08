@@ -6,6 +6,8 @@ onready var player = $ysort/player
 onready var game_interface = $game_interface
 onready var door = $door
 onready var npc = $ysort/new_npc_1
+onready var computer = $ysort/new_computer_1
+
 
 var task_1 = false
 
@@ -42,3 +44,6 @@ func _on_new_npc_1_freeze_player():
 func _on_new_npc_1_unfreeze_player():
 	player.unfreeze()
 	game_interface.visible = true
+
+func _on_new_npc_1_start_solving():
+	computer.can_solve = true
