@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/camera/camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entities/npc/npc.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/new_npc_1/new_npc_1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/door/door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/floor_1/floor_1.gd" type="Script" id=6]
@@ -15,6 +15,7 @@
 [ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sfx/menu_confirm.wav" type="AudioStream" id=14]
 [ext_resource path="res://entities/flower_base/flower_base.tscn" type="PackedScene" id=15]
+[ext_resource path="res://entities/new_computer_1/new_computer_1.tscn" type="PackedScene" id=16]
 
 [node name="floor_1" type="Node2D"]
 script = ExtResource( 6 )
@@ -40,8 +41,11 @@ position = Vector2( 176, 56 )
 [node name="player" parent="ysort" instance=ExtResource( 5 )]
 position = Vector2( 72, 88 )
 
-[node name="npc" parent="ysort" instance=ExtResource( 3 )]
-position = Vector2( 192, 88 )
+[node name="new_npc_1" parent="ysort" instance=ExtResource( 3 )]
+position = Vector2( 118, 92 )
+
+[node name="new_computer_1" parent="ysort" instance=ExtResource( 16 )]
+position = Vector2( 177, 82 )
 
 [node name="tutorial_layer" type="CanvasLayer" parent="."]
 visible = false
@@ -146,9 +150,12 @@ visible = false
 [node name="menu_confirm_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
 
-[connection signal="freeze_player" from="ysort/npc" to="." method="_on_npc_freeze_player"]
-[connection signal="quest_done" from="ysort/npc" to="." method="_on_npc_quest_done"]
-[connection signal="unfreeze_player" from="ysort/npc" to="." method="_on_npc_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/new_npc_1" to="." method="_on_new_npc_1_freeze_player"]
+[connection signal="start_solving" from="ysort/new_npc_1" to="." method="_on_new_npc_1_start_solving"]
+[connection signal="unfreeze_player" from="ysort/new_npc_1" to="." method="_on_new_npc_1_unfreeze_player"]
+[connection signal="freeze_player" from="ysort/new_computer_1" to="." method="_on_new_computer_1_freeze_player"]
+[connection signal="quest_done" from="ysort/new_computer_1" to="." method="_on_new_computer_1_quest_done"]
+[connection signal="unfreeze_player" from="ysort/new_computer_1" to="." method="_on_new_computer_1_unfreeze_player"]
 [connection signal="pressed" from="tutorial_layer/control/tutorial_page/continue" to="." method="_on_continue_pressed"]
 [connection signal="freeze" from="game_interface" to="." method="_on_game_interface_freeze"]
 [connection signal="unfreeze" from="game_interface" to="." method="_on_game_interface_unfreeze"]
