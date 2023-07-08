@@ -33,27 +33,6 @@ script = ExtResource( 3 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 2 )]
 visible = false
-tutorial_text = "In Python, a for loop is used to iterate over sequences such as lists, tuples, string, etc.
-
-A range is a series of values between two numeric intervals.
-
-We use Python's built-in function range() to define a range of values.
-ex.
-	values = range(4)
-
-Here, 4 inside range() defines a range containing values 0, 1, 2, 3.
-
-In Python, we can use for loop to iterate over a range. For example,
-ex.
-	for i in range(4):
-		print(i)
-	
-In this problem you need to print 0 to 4 in sequence.
-ex.
-	for i in range(5):
-		print(i)"
-initial_code = "ldict = {}"
-checker = "return [\"You need to print 0-4\", False]"
 
 [node name="sprite" type="Sprite" parent="."]
 position = Vector2( -1, -24 )

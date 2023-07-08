@@ -46,7 +46,7 @@ script = ExtResource( 1 )
 
 [node name="problem_solver" parent="." instance=ExtResource( 2 )]
 visible = false
-problem_list = [ [ "Assume <i> as your variable. In this problem you need to print 4 to 0 in sequence using the for loop and range method based from the topic. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "", "" ], [ "Assume <i> as your variable. In this problem you need to print 2 to 30 and increment value by adding a third parameter \"3\" using the for loop and range method based from the topic. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "", "" ], [ "Assume <i> as your variable. In this problem you need to print -4 to 0 but increment the sequence with 2 using the for loop and range method wherein it will printout -4, -2 based from the topic discussed. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "", "" ] ]
+problem_list = [ [ "Assume <i> as your variable. In this problem you need to print 4 to 0 in sequence using the for loop and range method based from the topic. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "ldict = {}", "return [\"You need to print 4 to 0\", False]" ], [ "Assume <i> as your variable. In this problem you need to print 2 to 30 and increment value by adding a third parameter \"3\" using the for loop and range method based from the topic. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "ldict = {}", "return [\"You need to print 2 to 30 and increment value by adding a third parameter 3\", False]" ], [ "Assume <i> as your variable. In this problem you need to print -4 to 0 but increment the sequence with 2 using the for loop and range method wherein it will printout -4, -2 based from the topic discussed. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "ldict = {}", "return [\"You need to print -4 to 0 but increment the sequence with 2\", False]" ] ]
 
 [node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -99,3 +99,8 @@ margin_bottom = -22.0
 margin_right = 10.0
 margin_bottom = 9.0
 texture = ExtResource( 6 )
+
+[connection signal="close" from="problem_solver" to="." method="_on_problem_solver_close"]
+[connection signal="finish_problem" from="problem_solver" to="." method="_on_problem_solver_finish_problem"]
+[connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact_area" to="." method="_on_interact_area_body_exited"]

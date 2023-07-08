@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends StaticBody2D
 
 signal freeze_player()
 signal unfreeze_player()

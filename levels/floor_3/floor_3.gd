@@ -18,7 +18,6 @@ func _ready():
 
 func _process(delta):
 	if task_1 and task_2 and task_3:
-		npc.set_dialogue_page(1)
 		door.open = true
 		Player.unlock_level("4")
 
@@ -46,12 +45,11 @@ func _on_new_computer_5_quest_done():
 
 func _on_new_computer_6_quest_done():
 	task_3 = true
-
+	npc.set_dialogue_page(1)
 
 func _on_new_npc_3_freeze_player():
 	player.freeze()
 	game_interface.visible = false
-
 
 func _on_new_npc_3_unfreeze_player():
 	player.unfreeze()
