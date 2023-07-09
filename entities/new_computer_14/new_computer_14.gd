@@ -50,11 +50,14 @@ func _on_interact_area_body_exited(body):
 
 func _on_problem_solver_finish_problem(output, is_good, index):
 	var satisfied = false
+	
+	var new_line = "\r\n"
+	
 	if index == 0:
-		if "malware\r\n" in output:
+		if ("malware"+ new_line) in output:
 			satisfied = true
 	elif index == 1:
-		if "files\r\n" in output:
+		if ("files"+ new_line) in output:
 			satisfied = true
 	
 	if (satisfied):
