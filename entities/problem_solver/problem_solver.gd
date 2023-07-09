@@ -5,8 +5,6 @@ signal close()
 
 export(Array,Array,String, MULTILINE) var problem_list
 
-
-
 onready var code_panel = $control/code_panel
 onready var code_editor = $control/code_panel/code_editor
 onready var code_feedback = $control/code_panel/code_feedback
@@ -43,11 +41,13 @@ func stop():
 	visible = false
 
 func _on_run_button_pressed():
+	SoundMaster.play("menu_confirm")
 	var result = evaluate_code(code_editor.text).split("^")
 	print("test compiler: ",result)
 	emit_signal("finish_problem",result[0], result[1] == 'True', selected_random_index)
 
 func _on_reset_button_pressed():
+	SoundMaster.play("menu_back")
 	code_editor.text = ''
 	pass
 
@@ -80,4 +80,5 @@ func evaluate_code(input):
 	return stdout[0]
 
 func _on_close_button_pressed():
+	SoundMaster.play("menu_back")
 	emit_signal("close")

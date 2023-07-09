@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://levels/floor_1/floor_1.tscn" type="PackedScene" id=2]
@@ -8,8 +8,6 @@
 [ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=6]
 [ext_resource path="res://levels/floor_2/floor_2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/floor_3/floor_3.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sfx/menu_confirm.wav" type="AudioStream" id=9]
-[ext_resource path="res://sfx/menu_back.wav" type="AudioStream" id=10]
 [ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=11]
 [ext_resource path="res://levels/floor_8/floor_8.tscn" type="PackedScene" id=12]
 [ext_resource path="res://levels/floor_7/floor_7.tscn" type="PackedScene" id=13]
@@ -187,12 +185,6 @@ margin_bottom = 545.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 6 )
 text = "Back"
-
-[node name="menu_confirm_sfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 9 )
-
-[node name="menu_back_sfx" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 10 )
 
 [connection signal="pressed" from="control/main/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="control/main/exit_button" to="." method="_on_exit_button_pressed"]

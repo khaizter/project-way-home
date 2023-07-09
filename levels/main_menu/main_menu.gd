@@ -20,8 +20,6 @@ onready var level_6 = $"control/stages/level_6"
 onready var level_7 = $"control/stages/level_7"
 onready var level_8 = $"control/stages/level_8"
 
-onready var menu_confirm_sfx = $menu_confirm_sfx
-onready var menu_back_sfx = $menu_back_sfx
 
 func _ready():
 	init()
@@ -39,7 +37,7 @@ func init():
 	stages.visible = false
 
 func _on_start_button_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	main.visible = false
 	stages.visible = true
 
@@ -47,61 +45,61 @@ func _on_exit_button_pressed():
 	get_tree().quit()
 
 func _on_back_pressed():
-	menu_back_sfx.play()
+	SoundMaster.play("menu_back")
 	main.visible = true
 	stages.visible = false
 
 func _on_level_1_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_1_scene):
 		get_tree().change_scene_to(level_1_scene)
 
 func _on_level_2_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_2_scene):
 		get_tree().change_scene_to(level_2_scene)
 
 func _on_level_3_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_3_scene):
 		get_tree().change_scene_to(level_3_scene)
 
 func _on_level_4_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_4_scene):
 		get_tree().change_scene_to(level_4_scene)
 
 func _on_level_5_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_5_scene):
 		get_tree().change_scene_to(level_5_scene)
 
 
 func _on_level_6_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_6_scene):
 		get_tree().change_scene_to(level_6_scene)
 
 
 func _on_level_7_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_7_scene):
 		get_tree().change_scene_to(level_7_scene)
 
 
 func _on_level_8_pressed():
-	menu_confirm_sfx.play()
+	SoundMaster.play("menu_confirm")
 	if (level_8_scene):
 		get_tree().change_scene_to(level_8_scene)
 
 
 func _on_reset_button_pressed():
-	menu_back_sfx.play()
+	SoundMaster.play("menu_back")
 	Player.reset_data()
 	init()
 
 
 func _on_credits_button_pressed():
-	menu_back_sfx.play()
+	SoundMaster.play("menu_back")
 	get_tree().change_scene("res://levels/end_credits/end_credits.tscn")
 

@@ -1,11 +1,16 @@
 extends CanvasLayer
 
-onready var question_title = $control/title
-onready var question = $control/question
-onready var choice_a = $control/choice_a
-onready var choice_b = $control/choice_b
-onready var choice_c = $control/choice_c
-onready var score_label = $control/score_label
+onready var question_title = $quiz/title
+onready var question = $quiz/question
+onready var choice_a = $quiz/choice_a
+onready var choice_b = $quiz/choice_b
+onready var choice_c = $quiz/choice_c
+onready var score_label = $quiz/score_label
+onready var result_label = $result/result_label
+
+onready var quiz_panel = $quiz
+onready var result_panel = $result
+onready var entry_panel = $entry
 
 var question_data
 
@@ -18,6 +23,9 @@ var correct_answer_index = 0
 var rand_generate = RandomNumberGenerator.new()
 
 func _ready():
+	entry_panel.visible = true
+	quiz_panel.visible = false
+	result_panel.visible = false
 	rand_generate.randomize()
 	question_data = read_json_file("questions/question-list.json")
 	start_question()
@@ -39,7 +47,13 @@ func start_question():
 
 
 func next_question():
+	SoundMaster.play("menu_confirm")
 	current_question_index += 1
+	if current_question_index >= len(question_data):
+		result_label.text = "You got "+ str(score) +" out of 10"
+		quiz_panel.visible = false
+		result_panel.visible = true
+		return
 	randomize_question(current_question_index)
 
 func randomize_question(index):
@@ -57,7 +71,7 @@ func load_question(title, _question, options, correct_index):
 	choice_b.text = options[1]
 	choice_c.text = options[2]
 	correct_answer_index = correct_index
-
+	
 
 func _on_choice_a_pressed():
 	if correct_answer_index == 0:
@@ -73,3 +87,14 @@ func _on_choice_c_pressed():
 	if correct_answer_index == 2:
 		score += 1
 	next_question()
+
+
+func _on_menu_button_pressed():
+	SoundMaster.play("menu_back")
+	get_tree().change_scene("res://levels/main_menu/main_menu.tscn")
+
+
+func _on_start_button_pressed():
+	SoundMaster.play("menu_confirm")
+	entry_panel.visible = false
+	quiz_panel.visible = true

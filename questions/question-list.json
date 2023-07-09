@@ -32,5 +32,149 @@
       "options": ["x", "=", "0"],
       "correct_option_index": 2
     }
+  ],
+  [
+    {
+      "question": "Multiply 10 with 5, and print the result.\nprint(10 _ 5)",
+      "options": ["-", "*", "+"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "Divide 10 by 2, and print the result.\nprint(10 _ 2)",
+      "options": ["/", "-", "*"],
+      "correct_option_index": 0
+    },
+    {
+      "question": "Add 6 and 9, and print the result\nprint(6 _ 9)",
+      "options": ["*", "=", "+"],
+      "correct_option_index": 2
+    }
+  ],
+  [
+    {
+      "question": "Use the correct comparison operator to check if 5 is equal to 5.\nif 5 _ 10:\n\tprint('5 and 5is equal')",
+      "options": ["+", "==", "="],
+      "correct_option_index": 1
+    },
+    {
+      "question": "On what line would the error redirects to?\nln1 >>> if 5 > 2:\nln2 >>> print('Five is greater than two!')",
+      "options": ["ln1", "ln2", "both"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "Print 'Hello' if a is equal to b, or if c is equal to d.\nif a == b _ c == d:\n\tprint('Hello')",
+      "options": ["and", "not", "or"],
+      "correct_option_index": 2
+    }
+  ],
+  [
+    {
+      "question": "Loop through the items in the food list.\nfood = ['applepie', 'bananapie', 'cherrypie']\n__ i in food:\n\tprint(i)",
+      "options": ["for", "while", "if"],
+      "correct_option_index": 0
+    },
+    {
+      "question": "Use the _ function to loop through a code set 6 times.\nfor i in ___(6):\n\tprint(i)",
+      "options": ["range", "length", "for"],
+      "correct_option_index": 0
+    },
+    {
+      "question": "The range() function defaults to _ as a starting value",
+      "options": ["-1", "1", "0"],
+      "correct_option_index": 2
+    }
+  ],
+  [
+    {
+      "question": "Print the second item in the fruits list.\nfruits = ['apple', 'banana', 'cherry']\nprint(_____)",
+      "options": ["fruits[2]", "fruits[1]", "fruits[0]"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "Use negative indexing to print the last item in the list.\nfruits = ['apple', 'banana', 'cherry']\nprint(_____)",
+      "options": ["fruits[-2]", "fruits[-3]", "fruits[-1]"],
+      "correct_option_index": 2
+    },
+    {
+      "question": "___ are used to store multiple items in a single variable.",
+      "options": ["Lists", "Dictionary", "Function"],
+      "correct_option_index": 0
+    }
+  ],
+  [
+    {
+      "question": "Print the 'quality' value of the dictionary:\nbookdict= {\n\t'pages': 69,\n\t'quality': 'mint',\n\t'price': 420",
+      "options": [
+        "print(bookdict['pages'])",
+        "print(bookdict['quality'])",
+        "print(bookdict['price'])"
+      ],
+      "correct_option_index": 1
+    },
+    {
+      "question": "_______ are used to store data values in key:value pairs.",
+      "options": ["Dictionaries", "Lists", "Constant"],
+      "correct_option_index": 0
+    },
+    {
+      "question": "written with curly brackets, and have keys and values:",
+      "options": ["Constant", "Dictionaries", "Lists"],
+      "correct_option_index": 1
+    }
+  ],
+  [
+    {
+      "question": "Create a function named my_function.\n__________:\n\tprint('Hello from a function')",
+      "options": [
+        "def my_function()",
+        "func my_function()",
+        "var my_function()"
+      ],
+      "correct_option_index": 0
+    },
+    {
+      "question": "Execute a function named my_function.\ndef my_function():\n\tprint('Hello from a function')",
+      "options": ["my_function()", "execute(my_function)", "function()"],
+      "correct_option_index": 0
+    },
+    {
+      "question": "Inside a function with two parameters, print the first parameter.\ndef my_function(fname, lname):\n\tprint(____)",
+      "options": ["my_function", "lname", "fname"],
+      "correct_option_index": 2
+    }
+  ],
+  [
+    {
+      "question": "_____ are containers that hold a value, such as a piece of text or a number",
+      "options": ["List", "Variables", "Number"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "_____ NAMES ARE CASE SENSITIVE",
+      "options": ["If", "Variable", "Loop"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "___ variable, which is denoted by double quote",
+      "options": ["String", "Number", "Boolean"],
+      "correct_option_index": 0
+    }
+  ],
+  [
+    {
+      "question": "____are specified after the function name, inside the parentheses.",
+      "options": ["Arguments", "Parameter", "Variable"],
+      "correct_option_index": 0
+    },
+    {
+      "question": "How many can you add as arguments?",
+      "options": ["Two", "One", "As many as you want"],
+      "correct_option_index": 2
+    },
+    {
+      "question": "The values in dictionary items can be of what not data type",
+      "options": ["Array", "Dictionary", "None of the above"],
+      "correct_option_index": 2
+    }
   ]
 ]

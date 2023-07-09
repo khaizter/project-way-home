@@ -88,6 +88,7 @@ config/icon="res://icon.png"
 
 Player="*res://singleton/Player.gd"
 Notification="*res://singleton/notification.tscn"
+SoundMaster="*res://singleton/sound_master.tscn"
 
 [display]
 
