@@ -201,7 +201,6 @@ initial_code = "ldict = {}"
 checker = "return [\"default_output\", True]"
 
 [node name="main" type="Control" parent="."]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 
@@ -230,6 +229,15 @@ margin_bottom = 485.0
 rect_scale = Vector2( 4, 4 )
 theme = ExtResource( 2 )
 icon = ExtResource( 12 )
+
+[node name="level" type="Label" parent="main"]
+margin_left = 819.0
+margin_top = 505.0
+margin_right = 861.0
+margin_bottom = 519.0
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = ExtResource( 6 )
+text = "Level 0"
 
 [node name="menu" type="Control" parent="."]
 visible = false
@@ -330,6 +338,7 @@ custom_fonts/font = ExtResource( 6 )
 text = "E"
 
 [node name="diary" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 

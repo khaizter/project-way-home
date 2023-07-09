@@ -15,6 +15,7 @@ var task_2 = false
 
 func _ready():
 	game_interface.visible = true
+	game_interface.set_level_text(2)
 
 func _process(delta):
 	if task_1 and task_2:

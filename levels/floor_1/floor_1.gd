@@ -12,10 +12,14 @@ onready var computer = $ysort/new_computer_1
 
 var task_1 = false
 
+func _init():
+	pass
+	
 func _ready():
 	player.freeze()
 	tutorial_layer.visible = true
 	game_interface.visible = false
+	game_interface.set_level_text(1)
 
 func _process(delta):
 	if task_1:

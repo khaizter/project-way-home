@@ -15,6 +15,7 @@ var task_3 = false
 
 func _ready():
 	game_interface.visible = true
+	game_interface.set_level_text(3)
 
 func _process(delta):
 	if task_1 and task_2 and task_3:
@@ -54,7 +55,6 @@ func _on_new_npc_3_freeze_player():
 func _on_new_npc_3_unfreeze_player():
 	player.unfreeze()
 	game_interface.visible = true
-
 
 func _on_new_npc_3_start_solving():
 	computer_1.enable()

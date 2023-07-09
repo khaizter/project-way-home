@@ -12,6 +12,7 @@ var task_1 = false
 
 func _ready():
 	game_interface.visible = true
+	game_interface.set_level_text(4)
 
 func _process(delta):
 	if task_1:

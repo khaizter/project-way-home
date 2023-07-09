@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=8]
 [ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/painting_2/painting_2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://levels/floor_5/floor_5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/floor_8/floor_8.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/new_npc_5/new_npc_5.tscn" type="PackedScene" id=12]
 
 [node name="floor_4" type="Node2D"]

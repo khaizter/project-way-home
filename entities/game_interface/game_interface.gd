@@ -35,6 +35,8 @@ onready var page_back_sfx = $page_back_sfx
 onready var code_editor = $phone/code_editor
 onready var code_feedback = $phone/code_feedback
 
+onready var level = $main/level
+
 const SCRIPT_FILE = "res://script.py"
 
 const SCRIPT_TEMPLATE = "import sys\ndef eval():\n\ttry:\n#initial\n\t\t#code\n#checker\n\texcept Exception as error:\n\t\treturn [type(error).__name__ + '-' + str(error),False]\nres = eval()\nsys.stdout.write(res[0] + '^' + str(res[1]))"
@@ -57,6 +59,10 @@ func _ready():
 	page_6_button.disabled = not Player.is_level_unlocked("6")
 	page_7_button.disabled = not Player.is_level_unlocked("7")
 	page_8_button.disabled = not Player.is_level_unlocked("8")
+	
+
+func set_level_text(value):
+	level.text = 'Level ' + str(value)
 
 func _on_menu_pressed():
 	menu_confirm_sfx.play()

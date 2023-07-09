@@ -14,6 +14,7 @@ var task_2 = false
 
 func _ready():
 	game_interface.visible = true
+	game_interface.set_level_text(6)
 
 func _process(delta):
 	if task_1 and task_2:
@@ -37,12 +38,11 @@ func _on_new_computer_unfreeze_player():
 func _on_new_computer_12_quest_done():
 	task_1 = true
 	computer_2.enable()
-	npc.set_dialogue_page(1)
 
 
 func _on_new_computer_13_quest_done():
 	task_2 = true
-
+	npc.set_dialogue_page(1)
 
 func _on_new_npc_7_freeze_player():
 	player.freeze()

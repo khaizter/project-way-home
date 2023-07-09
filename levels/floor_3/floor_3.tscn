@@ -9,7 +9,7 @@
 [ext_resource path="res://entities/new_computer_6/new_computer_6.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/new_computer_5/new_computer_5.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/new_npc_3/new_npc_3.tscn" type="PackedScene" id=9]
-[ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/floor_6/floor_6.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/gear/background/white-background.png" type="Texture" id=11]
 [ext_resource path="res://entities/game_interface/game_interface.tscn" type="PackedScene" id=12]
 

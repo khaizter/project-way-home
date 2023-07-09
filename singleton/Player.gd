@@ -9,6 +9,7 @@ var initial_data = {
 		}
 var g_data = initial_data
 
+
 func _ready():
 	load_data()
 
@@ -25,6 +26,7 @@ func unlock_level(value):
 
 func is_level_unlocked(value):
 	return g_data["levels"][value]
+
 
 func save_data():
 	var file = File.new()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://levels/floor_6/floor_6.gd" type="Script" id=1]
 [ext_resource path="res://entities/level_maker/level_maker.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/door/door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/new_npc_4/new_npc_4.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/new_computer_7/new_computer_7.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=10]
 
 [node name="floor_6" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,6 +25,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 
 [node name="door" parent="." instance=ExtResource( 7 )]
 position = Vector2( 240, 48 )
+level = ExtResource( 10 )
 
 [node name="ysort" type="YSort" parent="."]
 
