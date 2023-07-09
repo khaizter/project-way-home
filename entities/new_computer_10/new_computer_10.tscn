@@ -73,16 +73,17 @@ else:
 " ] ]
 
 [node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0, -10.5 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1, 1, 30, 31 )
 
 [node name="collission_shape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 11.25 )
+position = Vector2( 0, 0.75 )
 shape = SubResource( 1 )
 
 [node name="interact_area" type="Area2D" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 5.5 )
 
 [node name="collission_shape" type="CollisionShape2D" parent="interact_area"]
 modulate = Color( 0.643137, 0.807843, 0.0509804, 1 )

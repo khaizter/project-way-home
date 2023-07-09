@@ -49,16 +49,17 @@ visible = false
 problem_list = [ [ "Assume <i> as your variable. In this problem you need to print 0 to 4 in sequence using the for loop and range method based from the topic. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "ldict = {}", "return [\"You need to print 0 to 4\", False]" ], [ "Assume <i> as your variable. In this problem you need to print 1 to 3 in sequence using the for loop and range method based from the topic. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "ldict = {}", "return [\"You need to print 1 to 3\", False]" ], [ "Assume <i> as your variable. In this problem you need to print -1 to 4 in sequence using the for loop and range method based from the topic. REMEMBER YOUR INDENTATIONS AND THAT THE FIRST NUMBER ALWAYS STARTS AT 0!", "ldict = {}", "return [\"You need to print -1 to 4\", False]" ] ]
 
 [node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0, -10.5 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 1, 1, 30, 31 )
 
 [node name="collission_shape" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 11.25 )
+position = Vector2( 0, 0.75 )
 shape = SubResource( 1 )
 
 [node name="interact_area" type="Area2D" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 5.5 )
 
 [node name="collission_shape" type="CollisionShape2D" parent="interact_area"]
 modulate = Color( 0.643137, 0.807843, 0.0509804, 1 )

@@ -45,10 +45,10 @@ position = Vector2( 56, 88 )
 position = Vector2( 99, 85 )
 
 [node name="new_computer_2" parent="ysort" instance=ExtResource( 12 )]
-position = Vector2( 144, 72 )
+position = Vector2( 145, 79 )
 
 [node name="new_computer_3" parent="ysort" instance=ExtResource( 3 )]
-position = Vector2( 192, 72 )
+position = Vector2( 193, 79 )
 
 [node name="game_interface" parent="." instance=ExtResource( 9 )]
 
