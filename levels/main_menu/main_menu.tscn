@@ -1,16 +1,19 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://levels/main_menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://levels/floor_1/floor_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/gear/background/menu-background.png" type="Texture" id=3]
 [ext_resource path="res://fonts/minimal_pixel_font.tres" type="DynamicFont" id=4]
-[ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/floor_6/floor_6.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=6]
 [ext_resource path="res://levels/floor_2/floor_2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/floor_3/floor_3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sfx/menu_confirm.wav" type="AudioStream" id=9]
 [ext_resource path="res://sfx/menu_back.wav" type="AudioStream" id=10]
-[ext_resource path="res://levels/floor_5/floor_5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/floor_4/floor_4.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/floor_8/floor_8.tscn" type="PackedScene" id=12]
+[ext_resource path="res://levels/floor_7/floor_7.tscn" type="PackedScene" id=13]
+[ext_resource path="res://levels/floor_9/floor_9.tscn" type="PackedScene" id=14]
 
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -19,6 +22,9 @@ level_2_scene = ExtResource( 7 )
 level_3_scene = ExtResource( 8 )
 level_4_scene = ExtResource( 5 )
 level_5_scene = ExtResource( 11 )
+level_6_scene = ExtResource( 12 )
+level_7_scene = ExtResource( 13 )
+level_8_scene = ExtResource( 14 )
 
 [node name="control" type="Control" parent="."]
 margin_right = 1024.0
@@ -45,6 +51,7 @@ custom_fonts/font = ExtResource( 4 )
 text = "PYTHON SIMULATION GAME"
 
 [node name="main" type="Control" parent="control"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -89,7 +96,6 @@ text = "Credits"
 icon_align = 1
 
 [node name="stages" type="Control" parent="control"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -130,7 +136,7 @@ margin_right = 256.0
 margin_bottom = 473.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 6 )
-text = "4 - Loops"
+text = "4 - Arithmetic"
 align = 0
 
 [node name="level_5" type="Button" parent="control/stages"]
@@ -140,7 +146,37 @@ margin_right = 664.0
 margin_bottom = 257.0
 rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 6 )
-text = "5 - Methods"
+text = "5 - Loops"
+align = 0
+
+[node name="level_6" type="Button" parent="control/stages"]
+margin_left = 536.0
+margin_top = 312.0
+margin_right = 664.0
+margin_bottom = 329.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "6 - List"
+align = 0
+
+[node name="level_7" type="Button" parent="control/stages"]
+margin_left = 536.0
+margin_top = 384.0
+margin_right = 664.0
+margin_bottom = 401.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "7 - Dictionary"
+align = 0
+
+[node name="level_8" type="Button" parent="control/stages"]
+margin_left = 536.0
+margin_top = 456.0
+margin_right = 664.0
+margin_bottom = 473.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 6 )
+text = "8 - Methods"
 align = 0
 
 [node name="back" type="Button" parent="control/stages"]
@@ -167,4 +203,7 @@ stream = ExtResource( 10 )
 [connection signal="pressed" from="control/stages/level_3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="control/stages/level_4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="control/stages/level_5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="control/stages/level_6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="control/stages/level_7" to="." method="_on_level_7_pressed"]
+[connection signal="pressed" from="control/stages/level_8" to="." method="_on_level_8_pressed"]
 [connection signal="pressed" from="control/stages/back" to="." method="_on_back_pressed"]

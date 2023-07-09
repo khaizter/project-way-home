@@ -5,7 +5,7 @@ signal player_move(direction, times)
 const SAVE_FILE = 'res://save_data/save_file.save'
 var initial_data = {
 			"data_name": "Player",
-			"levels" : {"1" : true, "2" : false, "3"  : false, "4" : false, "5" : false}
+			"levels" : {"1" : true, "2" : true, "3"  : true, "4" : true, "5" : true, "6" : true,"7" : true, "8" : true}
 		}
 var g_data = initial_data
 

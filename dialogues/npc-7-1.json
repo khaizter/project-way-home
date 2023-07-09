@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Robin",
+    "text": "Functions are an essential part of most programming languages."
+  },
+  {
+    "name": "Robin",
+    "text": "Functions are reusable pieces of code that can be called using a function's name."
+  },
+  {
+    "name": "Robin",
+    "text": "Functions can be called anywhere in a Python program,"
+  },
+  {
+    "name": "Robin",
+    "text": "including calling functions within other functions."
+  },
+  {
+    "name": "Robin",
+    "text": "One of those purposes is to adhere to the DRY principle."
+  },
+  {
+    "name": "Robin",
+    "text": "DRY means ‘Don’t Repeat Yourself'!."
+  },
+  {
+    "name": "Robin",
+    "text": "It's like recycling! But virtually!"
+  }
+]

@@ -33,7 +33,7 @@ radius = 13.0
 
 [node name="new_npc_8" type="StaticBody2D"]
 script = ExtResource( 1 )
-dialogue_files = [ "res://dialogues/npc-6-1.json", "res://dialogues/npc-6-2.json" ]
+dialogue_files = [ "res://dialogues/npc-7-1.json", "res://dialogues/npc-7-2.json" ]
 
 [node name="shadow" type="Sprite" parent="."]
 position = Vector2( 0, 3 )
