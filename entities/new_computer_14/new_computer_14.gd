@@ -33,7 +33,7 @@ func interaction():
 			emit_signal("freeze_player")
 			problem_solver.start()
 		else:
-			Notification.show_notification("Finish previous task first")
+			Notification.show_notification("Interact with Robin first")
 
 func _on_interact_area_body_entered(body):
 	if body.is_in_group("player"):
@@ -51,13 +51,10 @@ func _on_interact_area_body_exited(body):
 func _on_problem_solver_finish_problem(output, is_good, index):
 	var satisfied = false
 	if index == 0:
-		if "Khaizter" in output:
+		if "malware\r\n" in output:
 			satisfied = true
 	elif index == 1:
-		if "arctic" in output:
-			satisfied = true
-	elif index == 2:
-		if "['anxiety', 'bipolar', 'ptsd', 'schizophrenia']" in output:
+		if "files\r\n" in output:
 			satisfied = true
 	
 	if (satisfied):

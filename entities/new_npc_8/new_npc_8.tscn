@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://entities/new_npc_8/new_npc_8.gd" type="Script" id=1]
+[ext_resource path="res://assets/gear/ui/small_button.png" type="Texture" id=2]
+[ext_resource path="res://assets/gear/shadow/shadow.png" type="Texture" id=3]
+[ext_resource path="res://assets/gear/npc/npc_2.png" type="Texture" id=4]
+[ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=5]
+[ext_resource path="res://entities/dialogue/dialogue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/lesson_module/lesson_module.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.5
+height = 6.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("interact_button:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -7, -43 ), Vector2( -7, -42 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 13.0
+
+[node name="new_npc_8" type="StaticBody2D"]
+script = ExtResource( 1 )
+dialogue_files = [ "res://dialogues/npc-6-1.json", "res://dialogues/npc-6-2.json" ]
+
+[node name="shadow" type="Sprite" parent="."]
+position = Vector2( 0, 3 )
+texture = ExtResource( 3 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0, -12 )
+texture = ExtResource( 4 )
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+modulate = Color( 0, 1, 0.25098, 1 )
+position = Vector2( 0, 1 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="interact_button" type="Control" parent="."]
+margin_left = -7.0
+margin_top = -43.0
+margin_right = 7.0
+margin_bottom = -29.0
+
+[node name="background" type="TextureRect" parent="interact_button"]
+margin_right = 14.0
+margin_bottom = 14.0
+texture = ExtResource( 2 )
+
+[node name="label" type="Label" parent="interact_button"]
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 15.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 5 )
+text = "E"
+align = 1
+valign = 1
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="dialogue" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="lesson_module" parent="." instance=ExtResource( 7 )]
+visible = false
+text = "A function is a block of code which only runs when it is called.
+You can pass data, known as parameters, into a function.
+A function can return data as a result.
+In Python a function is defined using the <def> keyword:
+EX:
+def my_function():
+  print(\"Hello from a function\")
+
+To call a function, use the function name followed by parenthesis:
+EX:
+def my_function():
+  print(\"Hello from a function\")
+
+my_function()
+
+ARGUMENTS
+Information can be passed into functions as arguments.
+Arguments are specified after the function name, inside the parentheses. You can add as many arguments as you want, just separate them with a comma.
+The following example has a function with one argument (fname). When the function is called, we pass along a first name, which is used inside the function to print the full name:
+EX:
+def my_function(fname):
+  print(fname + \" Gakiya\")
+
+my_function(\"Glenn\")
+my_function(\"Ace\")
+my_function(\"Limwell\")
+
+This function expects 2 arguments, and gets 2 arguments:
+EX:
+def my_function(fname, lname):
+  print(fname + \"Vash\" + lname)
+
+my_function(\"Khaizter\", \"Topacio\")
+
+KEYWORD ARGUMENTS
+You can also send arguments with the key = value syntax.
+This way the order of the arguments does not matter.
+EX:
+def my_function(key3, key2, key1):
+  print(\"The printing is \" + child3)
+
+my_function(child1 = \"Emil\", child2 = \"Tobias\", child3 = \"Linus\")"
+
+[node name="interact_area" type="Area2D" parent="."]
+position = Vector2( 0, -12 )
+
+[node name="collision_shape" type="CollisionShape2D" parent="interact_area"]
+position = Vector2( 0, 13 )
+shape = SubResource( 3 )
+
+[connection signal="finish_dialogue" from="dialogue" to="." method="_on_dialogue_finish_dialogue"]
+[connection signal="hide" from="lesson_module" to="." method="_on_lesson_module_hide"]
+[connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact_area" to="." method="_on_interact_area_body_exited"]
