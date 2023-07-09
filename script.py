@@ -1,13 +1,9 @@
 import sys
 def eval():
 	try:
-		ldict = {"researchers": {
-		  "both": "Glenn",
-		  "leadprog": "Khaizter",
-		  "docu": "Joy"
-		}}
-		exec('''print(researchers["leadprog"])''',globals(),ldict)
-		return ['Wrong value', False]
+		ldict = {"grocery" : ["depression", "adhd", "anxiety", "bipolar", "ptsd", "schizophrenia", "neurodevelopmental"]}
+		exec('''print(grocery[2:6])''',globals(),ldict)
+		return ["Wrong value", False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()
