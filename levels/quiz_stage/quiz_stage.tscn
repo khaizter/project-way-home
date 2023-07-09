@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/gear/ui/button.tres" type="Theme" id=2]
+[ext_resource path="res://levels/quiz_stage/quiz_stage.gd" type="Script" id=3]
+
+[node name="quiz_stage" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="background" type="ColorRect" parent="control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.172549, 0.172549, 0.172549, 1 )
+
+[node name="title" type="Label" parent="control"]
+margin_left = 51.0
+margin_top = 20.0
+margin_right = 124.0
+margin_bottom = 33.0
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = ExtResource( 1 )
+text = "Question 1"
+
+[node name="question" type="RichTextLabel" parent="control"]
+margin_left = 53.0
+margin_top = 99.0
+margin_right = 352.0
+margin_bottom = 170.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "Some quesiton"
+
+[node name="choice_a" type="Button" parent="control"]
+margin_left = 57.0
+margin_top = 339.0
+margin_right = 175.0
+margin_bottom = 359.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 2 )
+text = "A. Print"
+
+[node name="choice_b" type="Button" parent="control"]
+margin_left = 57.0
+margin_top = 414.0
+margin_right = 175.0
+margin_bottom = 434.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 2 )
+text = "B. Print"
+
+[node name="choice_c" type="Button" parent="control"]
+margin_left = 58.0
+margin_top = 486.0
+margin_right = 176.0
+margin_bottom = 506.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 2 )
+text = "C. Print"
+
+[node name="score_label" type="Label" parent="control"]
+margin_left = 829.0
+margin_top = 23.0
+margin_right = 883.0
+margin_bottom = 37.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Score : 0"
+
+[connection signal="pressed" from="control/choice_a" to="." method="_on_choice_a_pressed"]
+[connection signal="pressed" from="control/choice_b" to="." method="_on_choice_b_pressed"]
+[connection signal="pressed" from="control/choice_c" to="." method="_on_choice_c_pressed"]

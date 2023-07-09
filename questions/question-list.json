@@ -1,0 +1,36 @@
+[
+  [
+    {
+      "question": "Insert the missing part of the code below to output 'Hello World'.\n_____('Hello World')",
+      "options": ["print", "input", "if"],
+      "correct_option_index": 0
+    },
+    {
+      "question": "Insert to Create a variable named x and assign the value 50 to it.",
+      "options": ["z = 50", "x = 50", "x = 20"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "Insert to Create a variable named carname and assign the value CAT to it.",
+      "options": ["carname = CAT", "CAT = carname", "var = CAT"],
+      "correct_option_index": 0
+    }
+  ],
+  [
+    {
+      "question": "Display the sum that would equivalent to 15, using two variables: x and y.\nx = __\ny = 10\nprint (x + y)",
+      "options": ["10", "5", "15"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "Insert to Create a variable called z, assign x + y to it, and display the result.\nx = 5\ny = 10\n_ = x + y\nprint(_)",
+      "options": ["x", "z", "y"],
+      "correct_option_index": 1
+    },
+    {
+      "question": "What is the illegal characters in the example below:\n0myfirst_name = 'Vash'",
+      "options": ["x", "=", "0"],
+      "correct_option_index": 2
+    }
+  ]
+]
