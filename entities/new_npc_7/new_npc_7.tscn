@@ -109,7 +109,7 @@ You can specify a range of indexes by specifying where to start and where to end
 When specifying a range, the return value will be a new list with the specified items.
 Returning the third, fourth, and fifth item:
 EX:
-thislist = [\"apple\", \"ban"
+thislist = [\"apple\", \"ban]"
 
 [node name="interact_area" type="Area2D" parent="."]
 position = Vector2( 0, -12 )

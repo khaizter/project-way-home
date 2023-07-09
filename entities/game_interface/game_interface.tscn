@@ -18,79 +18,185 @@
 
 [node name="game_interface" type="CanvasLayer"]
 script = ExtResource( 3 )
-notes_data = [ "Variables are containers that hold a value, such as a piece of text or a number.
+notes_data = [ "Variables are containers that hold a value, such as a piece of text or a number. REMEMBER THAT VARIABLE NAMES ARE CASE SENTSITIVE!
+In programming, data type is an important concept.
+Variables can store data of different types, and different types can do different things.
+In this lesson we will use STRING variable [which is denoted by \"\" ] and INTEGER variable [which is denoted by numerical such as: 1]
 
-You can assign a value to a variable, like x or y, using the equal sign:
-
-Ex:
-	name = \"Bob\"", "The print() function prints the specified message you indicate inside the parameter.
-
+You can assign a value to a variable, like x or y or YOUR NAME, using the equal sign:
+Ex: 
+variablename1 = “variable_value” [#This is a String Variable!]
+variablename2 = 69 [#This is a Integer Variable!]", "Print
+The print() function prints the specific message you indicate inside the parameter.
 The message can be a string, or any other object, the object will be converted into a string before written to the screen.
+Ex: print(variablename)
 
+Input
 The input() function takes input from the user and returns it.
-
-The syntax of input() function is:
-	variable = input()
-", "In computer programming, we use the if statement to run a block code only when a certain condition is met.
-
-In Python, there are three forms of the if...else statement.
-	if condition:
-		# code
-	elif condition:
-		# code
-	else;
-		# code
-
-Don't forget to include tabs in using if blocks.
+The syntax of input() function is: 
+Ex: variablename = input()", "In computer programming, we use the if statement to run a block code only  when a certain condition is met.
+In Python, there are three forms of the if…else statement.
+    if CONDITION:
+        #code
+    elif CONDITION:
+        #code
+    else;
+        #code
+EX:    
+if NAME == “BOB”:
+    verify = True
+Don’t forget to include tabs <indentation> in using if blocks!
 
 Logical operators are used to check whether an expression is True or False. They are used in decision-making.
 
-Here, and is the logical operator AND. Since both condition1 and condition2 are True, the result is True.
-ex.
-	if condition1 and condition2:
-		#code here
-		
-Here, or is the logical operator OR. Since either condition1 or condition2 are True, the result is True.
-ex.
-	if condition1 or condition2:
-		#code here
-		", "In Python, a for loop is used to iterate over sequences such as lists, tuples, string, etc.
+Here, we will be using (AND) as the logical operator. Since both CONDITION1 and CONDITION2 are True, the result is True.
+EX: 
+if CONDITION1 and CONDITION2:
+    #code
 
-A range is a series of values between two numeric intervals.
+Here, we will be using (OR) as the logical operator. Since either “CONDITION1” or “CONDITION2” are True, the result is True.
+EX:
+if CONDITION1 or CONDITION2:
+    #code ", "Arithmetic Operators are used to perform mathematical operations like addition, subtraction, multiplication, and division.
+Addition Operator
+In Python, 
++ is the addition operator. It is used to add 2 values. 
+– is the subtraction operator. It is used to subtract the second value from the first value. 
+* is the multiplication operator. It is used to find the product of 2 values.
+/ is the division operator. It is used to find the quotient when the first operand is divided by the second.
+EX: 
+variable1 = 2
+variable2 = 2
+print(variable1+variable2) #Addition
+print(variable1-variable2) #Subtraction
+print(variable1*variable2) #Multiplication
+print(variable1/variable2) #Division", "In Python, a for loop is used to iterate over sequences such as lists, tuples, string, etc.
+
+A range is a series of values between two numeric intervals
 
 We use Python's built-in function range() to define a range of values.
-ex.
-	values = range(4)
-
-Here, 4 inside range() defines a range containing values 0, 1, 2, 3.
+EX:
+  values = range(4)
+Here, 4 inside range() defines a range containing values 0, 1, 2 ,3.
 
 In Python, we can use for loop to iterate over a range. For example,
-ex.
-	# prints 0, 1, 2, 3
-	for i in range(4):
-		print(i)
-		
-In this problem you need to print 4 to 0 in sequence.
-ex.
-	# prints 3, 2, 1, 0
-	for i in range(4, -1, -1):
-		print(i)", "A function is a block of code which only runs when it is called.
+EX:
+  for i in range(4):
+      print(i)
+  #this prints 0,1,2,3. Numbers always starts at 0
+The range() function defaults to 0 as a starting value, however it is possible to specify the starting value by adding a parameter: range(2, 6), which means values from 2 to 6 (but not including 6):
+EX:
+  for i in range(2, 6):
+      print(i)
+  #this prints 2, 3, 4, 5
+The range() function defaults to increment the sequence by 1, however it is possible to specify the increment value by adding a third parameter: range(2, 6, 2):
+EX:
+  for i in range(2, 6, 2):
+      print(i)
+  #this prints 2, 4
+You can also do decrement(decreasing) by doing: range(10, -1, -2):
+EX:
+  for i in range(10, -1, -2):
+      print(i)
+  #this prints 10, 8, 6, 4, 2, 0
+<REMINDER!> Always remember your indentations!!", "Lists are used to store multiple items in a single variable.
 
-You can use by using the function name followed by parenthesis
-ex:
-	function_name()
+Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are (Tuple), (Set), and (Dictionary), all with different qualities and usage.
+List items are ordered, changeable, and allow duplicate values.
+Lsits are created using square brackets:
+EX:
+examplelist = [\"item1\", \"item2\", \"item3\"]
 
-Here's an example of a function printing an output:
+List items are indexed, the first item has index [0], the second item has index [1] etc. and you can access them by referring to the index number:
+EX:
+examplelist = [\"apple\", \"banana\", \"cherry\"]
+print(example[1])
+#this will print the \"banana\"
+
+NEGATIVE INDEXING
+Negative indexing means start from the end
+-1 refers to the last item, -2 refers to the second last item etc.
+EX:
+examplelist = [\"apple\", \"banana\", \"cherry\"]
+print(example[1])
+#this will print \"cherry\"
+
+RANGE OF INDEXES
+You can specify a range of indexes by specifying where to start and where to end the range.
+When specifying a range, the return value will be a new list with the specified items.
+Returning the third, fourth, and fifth item:
+EX:
+thislist = [\"apple\", \"ban]", "Dictionaries are used to store data values in key:value pairs.
+A dictionary is a collection which is ordered*, changeable and do not allow duplicates.
+The values in dictionary items can be of any data type
+Dictionaries are written with curly brackets, and have keys and values:
+EX:
+mydict= {
+  \"key\": \"value\"
+  \"brand\": \"NoBrand\",
+  \"product\": \"Mustard\",
+  \"year\": 2024
+}
+print(thisdict)
+
+
+Dictionary items are presented in key:value pairs, and can be referred to by using the key name.
+Print the \"size\" value of the dictionary:
+EX:
+mydict = {
+  \"size\": 10,
+  \"color\": \"brown\",
+  \"type\": \"c\"
+}
+print(mydict[\"size\"])
+
+
+The dict() Constructor
+It is also possible to use the dict() constructor to make a dictionary.
+EX:
+personaldict= dict(name = \"Limwell\", age = 20, country = \"Japan\")
+print(personaldict)", "A function is a block of code which only runs when it is called.
+You can pass data, known as parameters, into a function.
+A function can return data as a result.
+In Python a function is defined using the <def> keyword:
+EX:
 def my_function():
-	print(\"Hello from a function\")
+  print(\"Hello from a function\")
 
-A function can return data as a result by using 'return' as a keyword to return a value.
-ex.
-def give_number():
-	return 5
-a = give_number()
+To call a function, use the function name followed by parenthesis:
+EX:
+def my_function():
+  print(\"Hello from a function\")
 
-Don't forget the colon in defining your function." ]
+my_function()
+
+ARGUMENTS
+Information can be passed into functions as arguments.
+Arguments are specified after the function name, inside the parentheses. You can add as many arguments as you want, just separate them with a comma.
+The following example has a function with one argument (fname). When the function is called, we pass along a first name, which is used inside the function to print the full name:
+EX:
+def my_function(fname):
+  print(fname + \" Gakiya\")
+
+my_function(\"Glenn\")
+my_function(\"Ace\")
+my_function(\"Limwell\")
+
+This function expects 2 arguments, and gets 2 arguments:
+EX:
+def my_function(fname, lname):
+  print(fname + \"Vash\" + lname)
+
+my_function(\"Khaizter\", \"Topacio\")
+
+KEYWORD ARGUMENTS
+You can also send arguments with the key = value syntax.
+This way the order of the arguments does not matter.
+EX:
+def my_function(key3, key2, key1):
+  print(\"The printing is \" + child3)
+
+my_function(child1 = \"Emil\", child2 = \"Tobias\", child3 = \"Linus\")" ]
 initial_code = "ldict = {}"
 checker = "return [\"default_output\", True]"
 
@@ -126,6 +232,7 @@ theme = ExtResource( 2 )
 icon = ExtResource( 12 )
 
 [node name="menu" type="Control" parent="."]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 
@@ -223,7 +330,6 @@ custom_fonts/font = ExtResource( 6 )
 text = "E"
 
 [node name="diary" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -246,7 +352,6 @@ patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="page_selector" type="Control" parent="diary"]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 
@@ -255,47 +360,75 @@ margin_left = 139.0
 margin_top = 83.0
 margin_right = 247.0
 margin_bottom = 103.0
-rect_scale = Vector2( 4, 4 )
+rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 5 )
 text = "Variables"
 
 [node name="page_2" type="Button" parent="diary/page_selector"]
 margin_left = 139.0
-margin_top = 183.0
+margin_top = 163.0
 margin_right = 247.0
-margin_bottom = 203.0
-rect_scale = Vector2( 4, 4 )
+margin_bottom = 183.0
+rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 5 )
 text = "Input/Print"
 
 [node name="page_3" type="Button" parent="diary/page_selector"]
 margin_left = 139.0
-margin_top = 283.0
-margin_right = 193.0
-margin_bottom = 303.0
-rect_scale = Vector2( 4, 4 )
+margin_top = 243.0
+margin_right = 247.0
+margin_bottom = 263.0
+rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 5 )
 text = "If, Else/Logical"
 
 [node name="page_4" type="Button" parent="diary/page_selector"]
-margin_left = 604.0
+margin_left = 139.0
+margin_top = 323.0
+margin_right = 247.0
+margin_bottom = 343.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 5 )
+text = "Arithmetic"
+
+[node name="page_5" type="Button" parent="diary/page_selector"]
+margin_left = 511.0
 margin_top = 83.0
-margin_right = 679.0
+margin_right = 619.0
 margin_bottom = 103.0
-rect_scale = Vector2( 4, 4 )
+rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 5 )
 text = "Loops"
 
-[node name="page_5" type="Button" parent="diary/page_selector"]
-margin_left = 604.0
-margin_top = 183.0
-margin_right = 679.0
-margin_bottom = 203.0
-rect_scale = Vector2( 4, 4 )
+[node name="page_6" type="Button" parent="diary/page_selector"]
+margin_left = 510.0
+margin_top = 163.0
+margin_right = 618.0
+margin_bottom = 183.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 5 )
+text = "List"
+
+[node name="page_7" type="Button" parent="diary/page_selector"]
+margin_left = 510.0
+margin_top = 243.0
+margin_right = 618.0
+margin_bottom = 263.0
+rect_scale = Vector2( 3, 3 )
+theme = ExtResource( 5 )
+text = "Dictionary"
+
+[node name="page_8" type="Button" parent="diary/page_selector"]
+margin_left = 510.0
+margin_top = 323.0
+margin_right = 618.0
+margin_bottom = 343.0
+rect_scale = Vector2( 3, 3 )
 theme = ExtResource( 5 )
 text = "Methods"
 
 [node name="notes_layer" type="Control" parent="diary"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -420,6 +553,9 @@ stream = ExtResource( 10 )
 [connection signal="pressed" from="diary/page_selector/page_3" to="." method="_on_page_3_pressed"]
 [connection signal="pressed" from="diary/page_selector/page_4" to="." method="_on_page_4_pressed"]
 [connection signal="pressed" from="diary/page_selector/page_5" to="." method="_on_page_5_pressed"]
+[connection signal="pressed" from="diary/page_selector/page_6" to="." method="_on_page_6_pressed"]
+[connection signal="pressed" from="diary/page_selector/page_7" to="." method="_on_page_7_pressed"]
+[connection signal="pressed" from="diary/page_selector/page_8" to="." method="_on_page_8_pressed"]
 [connection signal="pressed" from="diary/notes_layer/back_to_page_button" to="." method="_on_back_to_page_button_pressed"]
 [connection signal="pressed" from="diary/close_diary_button" to="." method="_on_close_diary_button_pressed"]
 [connection signal="pressed" from="phone/close_phone_button" to="." method="_on_close_phone_button_pressed"]

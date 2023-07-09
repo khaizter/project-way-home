@@ -23,6 +23,9 @@ onready var page_2_button = $diary/page_selector/page_2
 onready var page_3_button = $diary/page_selector/page_3
 onready var page_4_button = $diary/page_selector/page_4
 onready var page_5_button = $diary/page_selector/page_5
+onready var page_6_button = $diary/page_selector/page_6
+onready var page_7_button = $diary/page_selector/page_7
+onready var page_8_button = $diary/page_selector/page_8
 
 onready var menu_confirm_sfx = $menu_confirm_sfx
 onready var menu_back_sfx = $menu_back_sfx
@@ -51,6 +54,9 @@ func _ready():
 	page_3_button.disabled = not Player.is_level_unlocked("3")
 	page_4_button.disabled = not Player.is_level_unlocked("4")
 	page_5_button.disabled = not Player.is_level_unlocked("5")
+	page_6_button.disabled = not Player.is_level_unlocked("6")
+	page_7_button.disabled = not Player.is_level_unlocked("7")
+	page_8_button.disabled = not Player.is_level_unlocked("8")
 
 func _on_menu_pressed():
 	menu_confirm_sfx.play()
@@ -128,6 +134,24 @@ func _on_page_5_pressed():
 	notes_layer.visible = true
 
 
+func _on_page_6_pressed():
+	page_confirm_sfx.play()
+	notes.text = notes_data[5]
+	page_layer.visible = false
+	notes_layer.visible = true
+
+func _on_page_7_pressed():
+	page_confirm_sfx.play()
+	notes.text = notes_data[6]
+	page_layer.visible = false
+	notes_layer.visible = true
+
+func _on_page_8_pressed():
+	page_confirm_sfx.play()
+	notes.text = notes_data[7]
+	page_layer.visible = false
+	notes_layer.visible = true
+
 func _on_back_to_page_button_pressed():
 	page_back_sfx.play()
 	page_layer.visible = true
@@ -175,3 +199,11 @@ func evaluate_code(input):
 	var stdout = []
 	var exit = OS.execute("python",[global_dir_path + "/script.py"],true , stdout,true)
 	return stdout[0]
+
+
+
+
+
+
+
+
