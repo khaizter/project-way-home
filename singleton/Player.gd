@@ -5,10 +5,9 @@ signal player_move(direction, times)
 const SAVE_FILE = 'res://save_data/save_file.save'
 var initial_data = {
 			"data_name": "Player",
-			"levels" : {"1" : true, "2" : true, "3"  : true, "4" : true, "5" : true, "6" : true,"7" : true, "8" : true}
+			"levels" : {"1" : true, "2" : false, "3"  : false, "4" : false, "5" : false, "6" : false,"7" : false, "8" : false}
 		}
 var g_data = initial_data
-
 
 func _ready():
 	load_data()
