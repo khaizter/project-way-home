@@ -5,7 +5,7 @@
 [ext_resource path="res://entities/lesson_module/lesson_module.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/dialogue/dialogue.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=5]
-[ext_resource path="res://assets/gear/npc/npc_2.png" type="Texture" id=6]
+[ext_resource path="res://assets/gear/npc/npc.png" type="Texture" id=6]
 [ext_resource path="res://assets/gear/ui/small_button.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
