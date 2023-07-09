@@ -1,10 +1,13 @@
 import sys
 def eval():
 	try:
-		ldict = {}
-		exec('''for i in range(-1,5):
-	print(i)''',globals(),ldict)
-		return ["You need to print -1 to 4", False]
+		ldict = {"researchers": {
+		  "both": "Glenn",
+		  "leadprog": "Khaizter",
+		  "docu": "Joy"
+		}}
+		exec('''print(researchers["leadprog"])''',globals(),ldict)
+		return ['Wrong value', False]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()

@@ -26,16 +26,13 @@ func _on_game_interface_freeze():
 func _on_game_interface_unfreeze():
 	player.unfreeze()
 
-
 func _on_new_computer_freeze_player():
 	player.freeze()
 	game_interface.visible = false
 
-
 func _on_new_computer_unfreeze_player():
 	player.unfreeze()
 	game_interface.visible = true
-
 
 func _on_new_computer_8_quest_done():
 	task_1 = true
@@ -45,11 +42,9 @@ func _on_new_computer_9_quest_done():
 	task_2 = true
 	npc.set_dialogue_page(1)
 
-
 func _on_new_npc_5_freeze_player():
 	player.freeze()
 	game_interface.visible = false
-
 
 func _on_new_npc_5_unfreeze_player():
 	player.unfreeze()

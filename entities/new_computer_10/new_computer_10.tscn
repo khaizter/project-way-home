@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://entities/new_computer_10/new_computer_10.gd" type="Script" id=1]
+[ext_resource path="res://assets/gear/levelmaker/thesis_objects.png" type="Texture" id=2]
+[ext_resource path="res://assets/gear/ui/check-mark.png" type="Texture" id=3]
+[ext_resource path="res://assets/gear/ui/small_button.png" type="Texture" id=4]
+[ext_resource path="res://fonts/monogram.tres" type="DynamicFont" id=5]
+[ext_resource path="res://entities/problem_solver/problem_solver.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15, 4.25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15, 5.5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("interact_button:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -7, -34 ), Vector2( -7, -33 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("check_mark:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5, -31 ), Vector2( -5, -30 ) ]
+}
+
+[node name="new_computer_10" type="StaticBody2D"]
+script = ExtResource( 1 )
+
+[node name="problem_solver" parent="." instance=ExtResource( 6 )]
+visible = false
+problem_list = [ [ "Create a dictionary with a name \"researchers\" that stores the key:values \"both\": \"glenn\", \"leadprog\": \"Khaizter\", \"docu\": \"Joy\" in order. <!>Be wary of capitalizations!", "ldict= {\"researchers\": {
+  \"both\": \"\",
+  \"leadprog\": \"\",
+  \"docu\": \"\"
+}}", "if ldict['researchers']['both'] == 'Glenn' and ldict['researchers']['leadprog'] == 'Khaizter' and ldict['researchers']['docu'] == 'Joy':
+	return ['Good', True]
+else:
+	return ['Wrong dictionary values', False]
+" ], [ "Create a dictionary with a name \"technical\" that stores the key:values \"fname\": \"Klaid\", \"secname\": \"Bendio\", \"lname\": \"Moran\" in order. <!>Be wary of capitalizations!", "ldict= {\"technical\": {
+  \"fname\": \"\",
+  \"secname\": \"\",
+  \"lname\": \"\"
+}}", "if ldict['technical']['fname'] == 'Klaid' and ldict['technical']['secname'] == 'Bendio' and ldict['technical']['lname'] == 'Moran':
+	return ['Good', True]
+else:
+	return ['Wrong dictionary values', False]
+" ], [ "Using the dict() constructor, create a dictionary with the name \"kira\" that stores the key:values name: \"Yoshikage\", age = 26, country = \"Morioh\"", "ldict= {\"kira\": {
+  \"name\": \"\",
+  \"age\": 0,
+  \"country\": \"\"
+}}", "if ldict['kira']['name'] == 'Yoshikage' and ldict['kira']['age'] == 26 and ldict['kira']['country'] == 'Morioh':
+	return ['Good', True]
+else:
+	return ['Wrong dictionary values', False]
+" ] ]
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1, 1, 30, 31 )
+
+[node name="collission_shape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 11.25 )
+shape = SubResource( 1 )
+
+[node name="interact_area" type="Area2D" parent="."]
+position = Vector2( 0, 16 )
+
+[node name="collission_shape" type="CollisionShape2D" parent="interact_area"]
+modulate = Color( 0.643137, 0.807843, 0.0509804, 1 )
+shape = SubResource( 2 )
+
+[node name="interact_button" type="Control" parent="."]
+margin_left = -7.0
+margin_top = -34.0
+margin_right = 7.0
+margin_bottom = -20.0
+
+[node name="background" type="TextureRect" parent="interact_button"]
+margin_right = 14.0
+margin_bottom = 14.0
+texture = ExtResource( 4 )
+
+[node name="label" type="Label" parent="interact_button"]
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 15.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 5 )
+text = "E"
+align = 1
+valign = 1
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 3 )
+
+[node name="check_mark" type="Control" parent="."]
+margin_left = -5.0
+margin_top = -31.0
+margin_right = 5.0
+margin_bottom = -22.0
+
+[node name="background" type="TextureRect" parent="check_mark"]
+margin_right = 10.0
+margin_bottom = 9.0
+texture = ExtResource( 3 )
+
+[connection signal="close" from="problem_solver" to="." method="_on_problem_solver_close"]
+[connection signal="finish_problem" from="problem_solver" to="." method="_on_problem_solver_finish_problem"]
+[connection signal="body_entered" from="interact_area" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="interact_area" to="." method="_on_interact_area_body_exited"]
