@@ -122,7 +122,8 @@ You can specify a range of indexes by specifying where to start and where to end
 When specifying a range, the return value will be a new list with the specified items.
 Returning the third, fourth, and fifth item:
 EX:
-thislist = [\"apple\", \"ban]", "Dictionaries are used to store data values in key:value pairs.
+thislist = [\"apple\", \"ban]
+print(thislist[2:5])", "Dictionaries are used to store data values in key:value pairs.
 A dictionary is a collection which is ordered*, changeable and do not allow duplicates.
 The values in dictionary items can be of any data type
 Dictionaries are written with curly brackets, and have keys and values:
