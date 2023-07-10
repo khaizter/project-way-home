@@ -56,7 +56,7 @@ Print the \"quality\" value of the dictionary.", "ldict= {\"bookdict\": {
   \"pages\": 69,
   \"quality\": \"mint\",
   \"price\": 420
-}}", "return ['Wrong value'', False]" ], [ "From the given dictionary named \"researchers\".
+}}", "return ['Wrong value', False]" ], [ "From the given dictionary named \"researchers\".
 researchers= {
   \"both\": \"Glenn\",
   \"leadprog\": \"Khaizter\",
