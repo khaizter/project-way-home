@@ -20,6 +20,7 @@ func _ready():
 func _process(delta):
 	if task_1 and task_2:
 		door.open = true
+		Player.unlock_level("8")
 
 
 func _on_game_interface_freeze():

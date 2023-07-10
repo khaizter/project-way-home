@@ -2,8 +2,9 @@ import sys
 def eval():
 	try:
 		ldict = {}
-		exec('''x = "khaiz"''',globals(),ldict)
-		return [ldict['x'], True]
+		exec('''test = "print"
+print(test)''',globals(),ldict)
+		return ["default_output", True]
 	except Exception as error:
 		return [type(error).__name__ + '-' + str(error),False]
 res = eval()
